@@ -1,19 +1,16 @@
 {
   "name": "products",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
-    "tailwindcss": "2.2.4",
-    "react-redux": "^7.2.0",
-    "redux": "^4.0.5"
+    "tailwindcss": "2.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
