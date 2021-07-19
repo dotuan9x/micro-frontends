@@ -2,14 +2,18 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container;
 const dependencies = require("./package.json").dependencies;
-const publicPath = 'auto';
+const publicPath = '/';
 
 module.exports = {
     devtool: 'inline-source-map',
     mode: 'development',
     entry: [path.resolve('src/index.jsx')],
     output: {
+        path: path.resolve('dist'),
+        filename: '[name].js',
+        chunkFilename: '[name].js',
         publicPath: publicPath,
+        crossOriginLoading: 'anonymous'
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -38,37 +42,26 @@ module.exports = {
         open: false,
         hot: true,
         historyApiFallback: true,
-        port: 8002
+        port: 8001
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'RelatedProducts',
-            library: {type: 'var', name: 'RelatedProducts'},
-            filename: 'bundle.js',
-            remotes: {},
+            name: 'products',
+            library: {type: 'var', name: 'products'},
+            filename: 'products.js',
+            remotes: {
+                RelatedProducts: 'RelatedProducts',
+            },
             exposes: {
                 './Products': './src/App',
             },
             shared: {
-                'react': {
+                react: {
                     eager: true,
                     singleton: true,
                     requiredVersion: dependencies.react,
                 },
-                'react-dom': {
-                    eager: true,
-                    singleton: true,
-                },
-                'react-router-dom': {
-                    eager: true,
-                    singleton: true,
-                },
-                'tailwindcss': {
-                    eager: true,
-                    singleton: true,
-                    requiredVersion: dependencies.tailwindcss,
-                },
-            }
+            },
         }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),

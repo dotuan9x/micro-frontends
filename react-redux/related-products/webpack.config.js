@@ -44,29 +44,16 @@ module.exports = {
         new ModuleFederationPlugin({
             name: 'RelatedProducts',
             library: {type: 'var', name: 'RelatedProducts'},
-            filename: 'bundle.js',
+            filename: 'related.js',
             remotes: {},
             exposes: {
                 './Products': './src/App',
             },
             shared: {
-                'react': {
+                react: {
                     eager: true,
                     singleton: true,
                     requiredVersion: dependencies.react,
-                },
-                'react-dom': {
-                    eager: true,
-                    singleton: true,
-                },
-                'react-router-dom': {
-                    eager: true,
-                    singleton: true,
-                },
-                'tailwindcss': {
-                    eager: true,
-                    singleton: true,
-                    requiredVersion: dependencies.tailwindcss,
                 },
             }
         }),
