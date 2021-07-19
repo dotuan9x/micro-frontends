@@ -1,6 +1,7 @@
-const webpack = require('webpack');
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const {ModuleFederationPlugin} = require('webpack').container;
+const dependencies = require("./package.json").dependencies;
 const publicPath = '/';
 
 module.exports = {
@@ -15,7 +16,7 @@ module.exports = {
         crossOriginLoading: 'anonymous'
     },
     resolve: {
-        extensions: ['.js', '.json', '.jsx'],
+        extensions: ['.js', '.jsx'],
     },
     module: {
         rules: [
@@ -40,9 +41,28 @@ module.exports = {
     devServer: {
         open: false,
         hot: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        port: 8001
     },
     plugins: [
+        new ModuleFederationPlugin({
+            name: 'products',
+            library: {type: 'var', name: 'products'},
+            filename: 'products.js',
+            remotes: {
+                RelatedProducts: 'RelatedProducts',
+            },
+            exposes: {
+                './Products': './src/App',
+            },
+            shared: {
+                react: {
+                    eager: true,
+                    singleton: true,
+                    requiredVersion: dependencies.react,
+                },
+            },
+        }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),
             filename: './index.html',
