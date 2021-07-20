@@ -2,11 +2,11 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container;
 const dependencies = require("./package.json").dependencies;
-const publicPath = '/';
+const publicPath = process.env.mode === 'development' ? '/': '/react/products/dist/';
 
 module.exports = {
     devtool: 'inline-source-map',
-    mode: 'development',
+    mode: process.env.mode,
     entry: [path.resolve('src/index.jsx')],
     output: {
         path: path.resolve('dist'),
@@ -61,7 +61,7 @@ module.exports = {
         }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),
-            filename: './index.html',
+            filename: process.env.mode === 'development' ? './index.html' : path.resolve('../index.html'),
             chunksSortMode: 'none'
         })
     ]
