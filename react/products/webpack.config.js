@@ -2,11 +2,14 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container;
 const dependencies = require("./package.json").dependencies;
-const publicPath = process.env.mode === 'development' ? '/': '/react/products/dist/';
+
+// Production path => https://micro-frontends.tuando.net/react/products/dist/{bundle.js}
+const development = process.argv.indexOf('development') !== -1;
+const publicPath = development ? '/': '/react/products/dist/';
 
 module.exports = {
     devtool: 'inline-source-map',
-    mode: process.env.mode,
+    mode: 'development',
     entry: [path.resolve('src/index.jsx')],
     output: {
         path: path.resolve('dist'),
@@ -57,7 +60,7 @@ module.exports = {
         }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),
-            filename: process.env.mode === 'development' ? './index.html' : path.resolve('../index.html'),
+            filename: development ? './index.html' : '../index.html',
             chunksSortMode: 'none'
         })
     ]
