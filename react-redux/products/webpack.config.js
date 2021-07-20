@@ -48,12 +48,8 @@ module.exports = {
         new ModuleFederationPlugin({
             name: 'products',
             library: {type: 'var', name: 'products'},
-            filename: 'products.js',
             remotes: {
                 RelatedProducts: 'RelatedProducts',
-            },
-            exposes: {
-                './Products': './src/App',
             },
             shared: {
                 react: {

@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "lerna run --scope @react-redux/* --parallel start",
+    "build": "lerna run --scope @react-redux/* build",
+    "clean": "lerna run --scope @react-redux/* --parallel clean"
+  },
+  "devDependencies": {
+    "lerna": "3.22.1"
+  }
+}

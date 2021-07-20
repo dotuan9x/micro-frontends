@@ -1,10 +1,11 @@
 {
-  "name": "related-products",
+  "name": "@react-redux/related-products",
   "version": "0.0.1",
   "private": false,
   "scripts": {
     "start": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "react": "^16.13.0",
