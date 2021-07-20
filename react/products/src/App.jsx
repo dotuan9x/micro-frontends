@@ -3,9 +3,6 @@ import {HashRouter} from 'react-router-dom';
 
 const RelatedProducts = React.lazy(() => import('RelatedProducts/Products'));
 
-// Styles
-import 'tailwindcss/tailwind.css';
-
 function App() {
     return (
         <HashRouter>

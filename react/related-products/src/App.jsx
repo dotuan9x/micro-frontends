@@ -1,9 +1,6 @@
 import React from 'react';
 import {HashRouter} from 'react-router-dom';
 
-// Styles
-import 'tailwindcss/tailwind.css';
-
 function App() {
     return (
         <HashRouter>
