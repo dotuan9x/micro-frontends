@@ -11,7 +11,7 @@ module.exports = {
         path: path.resolve('dist'),
         filename: '[name].js',
         chunkFilename: '[name].js',
-        publicPath: '/',
+        publicPath: '/react/products/dist/', // Production path => https://micro-frontends.tuando.net/react/products/dist/{bundle.js}
         crossOriginLoading: 'anonymous'
     },
     resolve: {
@@ -56,7 +56,7 @@ module.exports = {
         }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),
-            filename: './index.html',
+            filename: path.resolve('../index.html'),
             chunksSortMode: 'none'
         })
     ]
