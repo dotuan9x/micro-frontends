@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Micro frontends</title>
+    <link>https://micro-frontends.tuando.net/posts/</link>
+    <description>Recent content in Posts on Micro frontends</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://micro-frontends.tuando.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://micro-frontends.tuando.net/posts/post-one/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://micro-frontends.tuando.net/posts/post-one/</guid>
+      <description>posts post one</description>
+    </item>
+    
+  </channel>
+</rss>
