@@ -42,7 +42,7 @@ module.exports = {
         new ModuleFederationPlugin({
             name: 'products',
             remotes: {
-                RelatedProducts: 'RelatedProducts@https://micro-frontends.tuando.net/demo/react-example/products/bundle.js',
+                RelatedProducts: 'RelatedProducts@https://micro-frontends.tuando.net/demo/react-example/related-products/bundle.js',
             }
         }),
         new HTMLWebpackPlugin({
