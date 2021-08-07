@@ -10,7 +10,7 @@ module.exports = {
         path: path.resolve('dist'),
         filename: '[name].js',
         chunkFilename: '[name].js',
-        publicPath: '/demo/react-example/products/dist/', // Production path => https://micro-frontends.tuando.net/react/products/dist/{bundle.js}
+        publicPath: '/demo/react-example/', // Production path => https://micro-frontends.tuando.net/react/products/dist/{bundle.js}
         crossOriginLoading: 'anonymous'
     },
     resolve: {
