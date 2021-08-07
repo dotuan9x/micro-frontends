@@ -1,7 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container;
-const dependencies = require("./package.json").dependencies;
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -11,7 +10,7 @@ module.exports = {
         path: path.resolve('dist'),
         filename: '[name].js',
         chunkFilename: '[name].js',
-        publicPath: '/react/products/dist/', // Production path => https://micro-frontends.tuando.net/react/products/dist/{bundle.js}
+        publicPath: '/demo/react-example/products/dist/', // Production path => https://micro-frontends.tuando.net/react/products/dist/{bundle.js}
         crossOriginLoading: 'anonymous'
     },
     resolve: {
@@ -42,17 +41,9 @@ module.exports = {
     plugins: [
         new ModuleFederationPlugin({
             name: 'products',
-            library: {type: 'var', name: 'products'},
             remotes: {
-                RelatedProducts: 'RelatedProducts',
-            },
-            shared: {
-                react: {
-                    eager: true,
-                    singleton: true,
-                    requiredVersion: dependencies.react,
-                },
-            },
+                RelatedProducts: 'RelatedProducts@https://micro-frontends.tuando.net/demo/react-example/products/bundle.js',
+            }
         }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),

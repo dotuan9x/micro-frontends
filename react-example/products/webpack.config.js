@@ -37,22 +37,19 @@ module.exports = {
         open: false,
         hot: true,
         historyApiFallback: true,
-        port: 8001
+        port: 8001,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+        }
     },
     plugins: [
         new ModuleFederationPlugin({
             name: 'products',
-            library: {type: 'var', name: 'products'},
             remotes: {
-                RelatedProducts: 'RelatedProducts',
-            },
-            shared: {
-                react: {
-                    eager: true,
-                    singleton: true,
-                    requiredVersion: dependencies.react,
-                },
-            },
+                RelatedProducts: 'RelatedProducts@http://localhost:8002/bundle.js',
+            }
         }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),

@@ -34,14 +34,18 @@ module.exports = {
         open: false,
         hot: true,
         historyApiFallback: true,
-        port: 8002
+        port: 8002,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+        }
     },
     plugins: [
         new ModuleFederationPlugin({
             name: 'RelatedProducts',
             library: {type: 'var', name: 'RelatedProducts'},
             filename: 'bundle.js',
-            remotes: {},
             exposes: {
                 './Products': './src/App',
             },
@@ -54,16 +58,7 @@ module.exports = {
                 'react-dom': {
                     eager: true,
                     singleton: true,
-                },
-                'react-router-dom': {
-                    eager: true,
-                    singleton: true,
-                },
-                'tailwindcss': {
-                    eager: true,
-                    singleton: true,
-                    requiredVersion: dependencies.tailwindcss,
-                },
+                }
             }
         }),
         new HTMLWebpackPlugin({
