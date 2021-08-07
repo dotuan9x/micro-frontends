@@ -1,0 +1,10 @@
+baseURL = 'https://micro-frontends.tuando.net/'
+languageCode = 'en-us'
+title = 'Micro frontends'
+theme = "book"
+
+# Book configuration
+disablePathToLower = true
+enableGitInfo = true
+[params]
+    BookSearch = true
