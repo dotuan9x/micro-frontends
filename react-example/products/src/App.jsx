@@ -13,7 +13,7 @@ function App() {
                     </div>
                     <div className="flex flex-row">
                         <div className="w-2/3">
-                            <img alt="" src="https://micro-frontends.org/0-model-store/images/tractor-red.jpg" />
+                            <img alt="" src="https://micro-frontends.tuando.net/images/example/tractor-red.jpg" />
                         </div>
                         <div className="w-1/3 pt-10">
                             <label className="text-lg font-medium">Tractor Porsche-Diesel Master 419</label>
