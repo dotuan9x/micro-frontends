@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/me", "destination": "/images/the-monolith.png" }
+    { "source": "/", "destination": "/blog/public/index.html" },
+    { "source": "/demo/react-redux", "destination": "/react-redux/dist/index.html" }
   ]
 }
