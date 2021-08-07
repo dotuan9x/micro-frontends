@@ -10,7 +10,7 @@ module.exports = {
         path: path.resolve('dist'),
         filename: '[name].js',
         chunkFilename: '[name].js',
-        publicPath: '/demo/react-example/', // Production path => https://micro-frontends.tuando.net/react/products/dist/{bundle.js}
+        publicPath: '/',
         crossOriginLoading: 'anonymous'
     },
     resolve: {
@@ -36,13 +36,18 @@ module.exports = {
         open: false,
         hot: true,
         historyApiFallback: true,
-        port: 8001
+        port: 8001,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+        }
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'products',
+            name: 'main',
             remotes: {
-                RelatedProducts: 'RelatedProducts@https://micro-frontends.tuando.net/demo/react-example/related-products/bundle.js',
+                Products: 'Products@http://localhost:8002/products.js',
             }
         }),
         new HTMLWebpackPlugin({

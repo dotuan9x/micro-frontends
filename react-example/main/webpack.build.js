@@ -1,15 +1,17 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container;
-const dependencies = require("./package.json").dependencies;
-const publicPath = 'auto';
 
 module.exports = {
     devtool: 'inline-source-map',
     mode: 'development',
     entry: [path.resolve('src/index.jsx')],
     output: {
-        publicPath: publicPath,
+        path: path.resolve('dist'),
+        filename: '[name].js',
+        chunkFilename: '[name].js',
+        publicPath: '/demo/react-example/',
+        crossOriginLoading: 'anonymous'
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -34,31 +36,13 @@ module.exports = {
         open: false,
         hot: true,
         historyApiFallback: true,
-        port: 8002,
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-        }
+        port: 8001
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'RelatedProducts',
-            library: {type: 'var', name: 'RelatedProducts'},
-            filename: 'bundle.js',
-            exposes: {
-                './Products': './src/App',
-            },
-            shared: {
-                'react': {
-                    eager: true,
-                    singleton: true,
-                    requiredVersion: dependencies.react,
-                },
-                'react-dom': {
-                    eager: true,
-                    singleton: true,
-                }
+            name: 'main',
+            remotes: {
+                Products: 'Products@https://micro-frontends.tuando.net/demo/react-example/products/products.js',
             }
         }),
         new HTMLWebpackPlugin({

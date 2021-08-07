@@ -1,10 +1,7 @@
 {
   "rewrites": [
     { "source": "/", "destination": "blog/public/index.html" },
-    { "source": "/demo/react-example", "destination": "react-example/products/dist/index.html" },
-    { "source": "/demo/react-example/:match*", "destination": "react-example/products/dist/:match*" },
-    { "source": "/demo/react-example/related-products/", "destination": "react-example/related-products/dist/index.html" },
-    { "source": "/demo/react-example/related-products/:match*", "destination": "react-example/related-products/dist/:match*" },
+    { "source": "/demo/:match*/", "destination": ":match*/dist/index.html" },
     { "source": "/demo/react-redux", "destination": "react-redux/products/dist/index.html" },
     { "source": "/:match*/", "destination": "blog/public/:match*/index.html" },
     { "source": "/:match*", "destination": "blog/public/:match*" }

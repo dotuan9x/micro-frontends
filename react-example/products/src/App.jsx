@@ -1,40 +1,24 @@
 import React from 'react';
-
-const RelatedProducts = React.lazy(() => import('RelatedProducts/Products'));
+import {HashRouter} from 'react-router-dom';
 
 function App() {
     return (
-        <React.Suspense fallback={null}>
-            <div className="container flex flex-row m-10 border border-gray-100 rounded">
-                <div className="flex flex-col w-full p-5">
-                    <div className="flex flex-row w-full justify-between">
-                        <h1 className="text-lg font-bold">The Model Store</h1>
-                        <div>Orders: 0 items</div>
-                    </div>
-                    <div className="flex flex-row">
-                        <div className="w-2/3">
-                            <img alt="" src="https://micro-frontends.tuando.net/images/example/tractor-red.jpg" />
-                        </div>
-                        <div className="w-1/3 pt-10">
-                            <label className="text-lg font-medium">Tractor Porsche-Diesel Master 419</label>
-                            <ul className="flex flex-row">
-                                <li>
-                                    <img alt="" src="https://micro-frontends.org/0-model-store/images/tractor-red-thumb.jpg" />
-                                </li>
-                                <li>
-                                    <img alt="" src="https://micro-frontends.org/0-model-store/images/tractor-green-thumb.jpg" />
-                                </li>
-                                <li>
-                                    <img alt="" src="https://micro-frontends.org/0-model-store/images/tractor-blue-thumb.jpg" />
-                                </li>
-                            </ul>
-                            <button className="border border-gray-100 rounded p-3">Buy for 66,00 $</button>
-                        </div>
-                    </div>
-                </div>
-                <RelatedProducts />
+        <HashRouter>
+            <div className="border-l border-gray-100 p-5">
+                <h1 className="text-base font-medium">Related products</h1>
+                <ul className="flex flex-col">
+                    <li className="cursor-pointer">
+                        <img alt="" src="https://micro-frontends.org/0-model-store/images/tractor-red-thumb.jpg" />
+                    </li>
+                    <li className="cursor-pointer">
+                        <img alt="" src="https://micro-frontends.org/0-model-store/images/tractor-green-thumb.jpg" />
+                    </li>
+                    <li className="cursor-pointer">
+                        <img alt="" src="https://micro-frontends.org/0-model-store/images/tractor-blue-thumb.jpg" />
+                    </li>
+                </ul>
             </div>
-        </React.Suspense>
+        </HashRouter>
     );
 }
 

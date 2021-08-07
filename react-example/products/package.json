@@ -4,7 +4,7 @@
   "private": false,
   "scripts": {
     "start": "webpack serve --mode development",
-    "build": "webpack --config webpack.build.js --mode production"
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "react": "^16.13.0",
@@ -22,7 +22,6 @@
     "@babel/polyfill": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
-    "@babel/preset-typescript": "^7.10.4",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.1.0",
     "eslint": "7.28.0",
