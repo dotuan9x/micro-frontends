@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/blog/public/index.html" },
-    { "source": "/demo/react-redux", "destination": "/react-redux/dist/index.html" }
+    { "source": "/", "destination": "blog/public/index.html" },
+    { "source": "/demo/react-redux", "destination": "react-redux/products/dist/index.html" }
   ]
 }
