@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/me", "destination": "/blog/public/index.html" }
+    { "source": "/me", "destination": "/images/the-monolith.png" }
   ]
 }
