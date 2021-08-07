@@ -1,7 +1,8 @@
 {
   "rewrites": [
     { "source": "/", "destination": "blog/public/index.html" },
+    { "source": "/demo/react-redux", "destination": "react-redux/products/dist/index.html" },
     { "source": "/:match*", "destination": "blog/public/:match*" },
-    { "source": "/demo/react-redux", "destination": "react-redux/products/dist/index.html" }
+    { "source": "/:match*", "destination": "blog/public/:match*/index.html" }
   ]
 }
