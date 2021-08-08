@@ -10,7 +10,7 @@ module.exports = {
         path: path.resolve('dist'),
         filename: '[name].js',
         chunkFilename: '[name].js',
-        publicPath: '/demo/react-example/',
+        publicPath: 'https://micro-frontends.tuando.net/demo/react-example/dist/',
         crossOriginLoading: 'anonymous'
     },
     resolve: {
@@ -42,7 +42,7 @@ module.exports = {
         new ModuleFederationPlugin({
             name: 'main',
             remotes: {
-                Products: 'Products@https://micro-frontends.tuando.net/demo/react-example/products/products.js',
+                Products: 'Products@https://micro-frontends.tuando.net/demo/react-example/products/dist/products.js',
             }
         }),
         new HTMLWebpackPlugin({
