@@ -10,7 +10,7 @@ module.exports = {
         path: path.resolve('dist'),
         filename: '[name].js',
         chunkFilename: '[name].js',
-        publicPath: 'https://micro-frontends.tuando.net/demo/react-example/dist/',
+        publicPath: 'https://micro-frontends.tuando.net/demo/react-example/main/dist/',
         crossOriginLoading: 'anonymous'
     },
     resolve: {
@@ -47,7 +47,7 @@ module.exports = {
         }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),
-            filename: './index.html',
+            filename: path.resolve('../index.html'),
             chunksSortMode: 'none'
         })
     ]
