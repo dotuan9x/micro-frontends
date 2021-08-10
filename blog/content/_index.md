@@ -16,5 +16,5 @@ Các mô hình phát triển phần mềm từ trước khi có sự ra đời c
 
 **Microservices:** như đã nói ở trên, chúng ta chia nhỏ các chức năng thành các dịch vụ riêng để thuận tiện cho quá trình phát triển. Tuy nhiên việc phần chia các dịch vụ này chỉ ở phần backend cho nên phía frontend vẫn phải phát triển chung các chức năng với nhau ở một bộ source code.
 
-![Micro Frontends](/images/micro-frontend.png)
+![Micro Frontends](/images/mico-frontends.png)
 **Mô hình Micro frontends**: mỗi team sẽ phát triển các sản phẩm độc lập (từ Database, Backend đến Frontend). Sau đó tích hợp các sản phẩm độc lập này lại với nhau thành một sản phẩm chung. Nguồn: [https://micro-frontends.org/](https://micro-frontends.org/)

@@ -40,7 +40,7 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),
-            filename: path.resolve('index.html'),
+            filename: path.resolve('../index.html'),
             chunksSortMode: 'none'
         })
     ]
