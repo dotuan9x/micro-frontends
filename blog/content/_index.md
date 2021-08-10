@@ -11,3 +11,10 @@ Các mô hình phát triển phần mềm từ trước khi có sự ra đời c
 
 - Không phải thành viên nào trong team cũng có thể làm được cả frontend và backend (Làm gì có một Junior developer có thể sáng code React và chiều code Golang một cách đỉnh cao được)
 - Sản phẩm lớn, khối lượng kiến thức nhiều sẽ có khó thành viên nào nắm và hiểu sau được cả về frontend và backend
+
+**Front & Back:** để khắc phục vấn đề trên ta có thể tách ra thành 2 team phát triển frontend và backend độc lập. Tuy nhiên đối với các sản phẩm lớn như một sàn thương mại điện tử (Tiki, Shopee,...) cần hỗ trợ các chức năng như sản phẩm, đặt hàng, thanh toán, tìm kiếm,... thì khối lượng công việc và kiến thức sẽ rất lớn và chúng ta cần phải áp dụng microservice để giải quyết các bài toán này.
+
+**Microservices:** như đã nói ở trên, chúng ta chia nhỏ các chức năng thành các dịch vụ riêng để thuận tiện cho quá trình phát triển. Tuy nhiên việc phần chia các dịch vụ này chỉ ở phần backend cho nên phía frontend vẫn phải phát triển chung các chức năng với nhau ở một bộ source code.
+
+![Micro Frontends](/images/micro-frontend.png)
+**Mô hình Micro frontends**: mỗi team sẽ phát triển các sản phẩm độc lập (từ Database, Backend đến Frontend). Sau đó tích hợp các sản phẩm độc lập này lại với nhau thành một sản phẩm chung. Nguồn: [https://micro-frontends.org/](https://micro-frontends.org/)

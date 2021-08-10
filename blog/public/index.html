@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.620e84b9b1233ab972def143178c869eb52b851462b1a4d4fad655a7bc7dcdd7.js" integrity="sha256-Yg6EubEjOrly3vFDF4yGnrUrhRRisaTU&#43;tZVp7x9zdc=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.6bebcbcd339edc5e0d94f888ffca20ce64e62f9a98e44899a6d90c6acb04a7bf.js" integrity="sha256-a&#43;vLzTOe3F4NlPiI/8ogzmTmL5qY5EiZptkMassEp78=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://micro-frontends.tuando.net/index.xml" title="Micro frontends" />
 <!--
 Made with Book Theme
@@ -61,13 +61,73 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     
       
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Micro Frontends</span>
+  
+
+          
+  <ul>
+    
+      
         <li>
           
   
   
 
   
-    <a href="https://micro-frontends.tuando.net/docs/example/" class="">Example</a>
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/when-to-use/" class="">Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/advantages-and-disadvantages/" class="">Một số ưu điểm và nhược điểm của Micro Frontends</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/method/" class="">Một số phương pháp triển khai Micro Frontends</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-090e5e9541fbf7abe3678403e1b40824" class="toggle"  />
+    <label for="section-090e5e9541fbf7abe3678403e1b40824" class="flex justify-between">
+      <a role="button" class="">Ví dụ</a>
+    </label>
   
 
           
@@ -86,6 +146,32 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/react-redux/" class="">React Redux</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/web-components/" class="">Web Components</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -101,6 +187,18 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/dotuan9x/micro-frontends" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+</ul>
 
 
 
@@ -143,7 +241,11 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#giới-thiệu">Giới thiệu</a></li>
+    <li><a href="#micro-frontends">Micro frontends</a>
+      <ul>
+        <li><a href="#giới-thiệu">Giới thiệu</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -173,6 +275,10 @@ Các mô hình phát triển phần mềm từ trước khi có sự ra đời c
 <li>Không phải thành viên nào trong team cũng có thể làm được cả frontend và backend (Làm gì có một Junior developer có thể sáng code React và chiều code Golang một cách đỉnh cao được)</li>
 <li>Sản phẩm lớn, khối lượng kiến thức nhiều sẽ có khó thành viên nào nắm và hiểu sau được cả về frontend và backend</li>
 </ul>
+<p><strong>Front &amp; Back:</strong> để khắc phục vấn đề trên ta có thể tách ra thành 2 team phát triển frontend và backend độc lập. Tuy nhiên đối với các sản phẩm lớn như một sàn thương mại điện tử (Tiki, Shopee,&hellip;) cần hỗ trợ các chức năng như sản phẩm, đặt hàng, thanh toán, tìm kiếm,&hellip; thì khối lượng công việc và kiến thức sẽ rất lớn và chúng ta cần phải áp dụng microservice để giải quyết các bài toán này.</p>
+<p><strong>Microservices:</strong> như đã nói ở trên, chúng ta chia nhỏ các chức năng thành các dịch vụ riêng để thuận tiện cho quá trình phát triển. Tuy nhiên việc phần chia các dịch vụ này chỉ ở phần backend cho nên phía frontend vẫn phải phát triển chung các chức năng với nhau ở một bộ source code.</p>
+<p><img src="/images/micro-frontend.png" alt="Micro Frontends" />
+<strong>Mô hình Micro frontends</strong>: mỗi team sẽ phát triển các sản phẩm độc lập (từ Database, Backend đến Frontend). Sau đó tích hợp các sản phẩm độc lập này lại với nhau thành một sản phẩm chung. Nguồn: <a href="https://micro-frontends.org/">https://micro-frontends.org/</a></p>
 </article>
  
       
@@ -182,6 +288,12 @@ Các mô hình phát triển phần mềm từ trước khi có sự ra đời c
   <div class="flex flex-wrap justify-between">
 
 
+
+  <div><a class="flex align-center" href="https://github.com/dotuan9x/micro-frontends/commit/db115c586ab1e45852487cbc2f44fb537f8f337b" title='Last modified by Tuấn Đỗ Văn | August 7, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>August 7, 2021</span>
+    </a>
+  </div>
 
 
 
@@ -214,7 +326,11 @@ Các mô hình phát triển phần mềm từ trước khi có sự ra đời c
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#giới-thiệu">Giới thiệu</a></li>
+    <li><a href="#micro-frontends">Micro frontends</a>
+      <ul>
+        <li><a href="#giới-thiệu">Giới thiệu</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

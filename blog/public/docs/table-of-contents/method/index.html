@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Một số phương pháp triển khai Micro Frontends #  Build-time integration #  là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
+{ &#34;name&#34;: &#34;@feed-me/container&#34;, &#34;version&#34;: &#34;1.0.0&#34;, &#34;description&#34;: &#34;A food delivery web app&#34;, &#34;dependencies&#34;: { &#34;@feed-me/browse-restaurants&#34;: &#34;^1.2.3&#34;, &#34;@feed-me/order-food&#34;: &#34;^4.5.6&#34;, &#34;@feed-me/user-profile&#34;: &#34;^7.8.9&#34; } } Cách tiếp cận này có một số hạn chế như:">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Một số phương pháp triển khai Micro Frontends" />
+<meta property="og:description" content="Một số phương pháp triển khai Micro Frontends #  Build-time integration #  là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
+{ &#34;name&#34;: &#34;@feed-me/container&#34;, &#34;version&#34;: &#34;1.0.0&#34;, &#34;description&#34;: &#34;A food delivery web app&#34;, &#34;dependencies&#34;: { &#34;@feed-me/browse-restaurants&#34;: &#34;^1.2.3&#34;, &#34;@feed-me/order-food&#34;: &#34;^4.5.6&#34;, &#34;@feed-me/user-profile&#34;: &#34;^7.8.9&#34; } } Cách tiếp cận này có một số hạn chế như:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://micro-frontends.tuando.net/docs/table-of-contents/method/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Một số phương pháp triển khai Micro Frontends | Micro frontends</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.6bebcbcd339edc5e0d94f888ffca20ce64e62f9a98e44899a6d90c6acb04a7bf.js" integrity="sha256-a&#43;vLzTOe3F4NlPiI/8ogzmTmL5qY5EiZptkMassEp78=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Micro frontends</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Micro Frontends</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/when-to-use/" class="">Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/advantages-and-disadvantages/" class="">Một số ưu điểm và nhược điểm của Micro Frontends</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/method/" class=" active">Một số phương pháp triển khai Micro Frontends</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-090e5e9541fbf7abe3678403e1b40824" class="toggle"  />
+    <label for="section-090e5e9541fbf7abe3678403e1b40824" class="flex justify-between">
+      <a role="button" class="">Ví dụ</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/react-example/" class="">React Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/react-redux/" class="">React Redux</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/web-components/" class="">Web Components</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/dotuan9x/micro-frontends" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Một số phương pháp triển khai Micro Frontends</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#một-số-phương-pháp-triển-khai-micro-frontends">Một số phương pháp triển khai Micro Frontends</a>
+          <ul>
+            <li><a href="#build-time-integration"><strong>Build-time integration</strong></a></li>
+            <li><a href="#run-time-integration-via-iframes"><strong>Run-time integration via iframes</strong></a></li>
+            <li><a href="#run-time-integration-via-javascript"><strong>Run-time integration via JavaScript</strong></a></li>
+            <li><a href="#run-time-integration-via-web-components"><strong>Run-time integration via Web Components</strong></a></li>
+            <li><a href="#module-federation-webpack-5"><strong>Module Federation Webpack 5</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="một-số-phương-pháp-triển-khai-micro-frontends">
+  Một số phương pháp triển khai Micro Frontends
+  <a class="anchor" href="#m%e1%bb%99t-s%e1%bb%91-ph%c6%b0%c6%a1ng-ph%c3%a1p-tri%e1%bb%83n-khai-micro-frontends">#</a>
+</h2>
+<h3 id="build-time-integration">
+  <strong>Build-time integration</strong>
+  <a class="anchor" href="#build-time-integration">#</a>
+</h3>
+<p>là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;@feed-me/container&#34;</span>,
+  <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;1.0.0&#34;</span>,
+  <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;A food delivery web app&#34;</span>,
+  <span style="color:#f92672">&#34;dependencies&#34;</span>: {
+    <span style="color:#f92672">&#34;@feed-me/browse-restaurants&#34;</span>: <span style="color:#e6db74">&#34;^1.2.3&#34;</span>,
+    <span style="color:#f92672">&#34;@feed-me/order-food&#34;</span>: <span style="color:#e6db74">&#34;^4.5.6&#34;</span>,
+    <span style="color:#f92672">&#34;@feed-me/user-profile&#34;</span>: <span style="color:#e6db74">&#34;^7.8.9&#34;</span>
+  }
+}
+</code></pre></div><p>Cách tiếp cận này có một số hạn chế như:</p>
+<ul>
+<li>Chúng ta sẽ phải re-compile (bundle) các ứng dụng chính và release lại mỗi khi các ứng dụng con có thay đổi (release version mới từ 0.0.1 ⇒ 0.02)</li>
+<li>Không có sự đồng bộ chức năng giữa các ứng dụng chính nếu chúng ta bỏ xót quá trình đồng bộ version của ứng dụng con (Cũng có thể là một điểm lợi nếu chúng ta không muốn nâng cấp chức năng ở một trang nào đó)</li>
+<li>Phụ thuộc các dependences với nhau
+<ul>
+<li>Nếu project @feed-me/container sử dụng React và @feed-me/browse-restaurants cũng sử dụng React thì sẽ bị trùng lập thư viện và tăng dung lượng khi tải trang web</li>
+<li>Nếu project @feed-me/container sử dụng React và  @feed-me/browse-restaurants sử dụng chung React với project chính thì sẽ bị phụ thuộc vào version của project chính.</li>
+</ul>
+</li>
+</ul>
+<h3 id="run-time-integration-via-iframes">
+  <strong>Run-time integration via iframes</strong>
+  <a class="anchor" href="#run-time-integration-via-iframes">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Feed me!&lt;/<span style="color:#f92672">title</span>&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">h1</span>&gt;Welcome to Feed me!&lt;/<span style="color:#f92672">h1</span>&gt;
+
+    &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;micro-frontend-container&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">microFrontendsByRoute</span> <span style="color:#f92672">=</span> {
+        <span style="color:#e6db74">&#39;/&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://browse.example.com/index.html&#39;</span>,
+        <span style="color:#e6db74">&#39;/order-food&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://order.example.com/index.html&#39;</span>,
+        <span style="color:#e6db74">&#39;/user-profile&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://profile.example.com/index.html&#39;</span>,
+      };
+
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">iframe</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;micro-frontend-container&#39;</span>);
+      <span style="color:#a6e22e">iframe</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">microFrontendsByRoute</span>[window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">pathname</span>];
+    &lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>Mỗi lần thay đổi url từ <a href="https://acb.com/">https://acb.com/</a> sang <a href="https://acb.com/order-food">https://acb.com/order-food</a> phần nội dụng của trang sẽ được tải lại bởi một nội dung từ domain khác, trong ví dụ là <a href="https://order.example.com/index.html">https://order.example.com/index.html</a>.</p>
+<p>Ưu điểm:</p>
+<ul>
+<li>Không bị ảnh hưởng bởi styles (CSS) giữa các trang chính và trang trong iframe</li>
+</ul>
+<p>Hạn chế:</p>
+<ul>
+<li>Phải tải lại toàn bộ trang khi thay đổi đường dẫn</li>
+<li>Khó khăn trong việc giao tiếp giữa các chức năng</li>
+</ul>
+<h3 id="run-time-integration-via-javascript">
+  <strong>Run-time integration via JavaScript</strong>
+  <a class="anchor" href="#run-time-integration-via-javascript">#</a>
+</h3>
+<h3 id="run-time-integration-via-web-components">
+  <strong>Run-time integration via Web Components</strong>
+  <a class="anchor" href="#run-time-integration-via-web-components">#</a>
+</h3>
+<p>Cách tiếp cận này cho phép chúng ta khai báo một HTML Custom element, ví dụ như ta khai báo một HTML Custom element <footer-order></footer-order> thì chỗ nào muốn sử dụng ta chỉ cần chèn đoạn mã <footer-order></footer-order> là có thể sử dụng một cách vi vu</p>
+<h3 id="module-federation-webpack-5">
+  <strong>Module Federation Webpack 5</strong>
+  <a class="anchor" href="#module-federation-webpack-5">#</a>
+</h3>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#một-số-phương-pháp-triển-khai-micro-frontends">Một số phương pháp triển khai Micro Frontends</a>
+          <ul>
+            <li><a href="#build-time-integration"><strong>Build-time integration</strong></a></li>
+            <li><a href="#run-time-integration-via-iframes"><strong>Run-time integration via iframes</strong></a></li>
+            <li><a href="#run-time-integration-via-javascript"><strong>Run-time integration via JavaScript</strong></a></li>
+            <li><a href="#run-time-integration-via-web-components"><strong>Run-time integration via Web Components</strong></a></li>
+            <li><a href="#module-federation-webpack-5"><strong>Module Federation Webpack 5</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

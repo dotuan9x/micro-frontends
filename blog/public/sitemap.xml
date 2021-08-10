@@ -2,15 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://micro-frontends.tuando.net/</loc>
-    <lastmod>2021-08-07T17:02:20+07:00</lastmod>
-    <priority>0</priority>
+    <loc>https://micro-frontends.tuando.net/docs/table-of-contents/when-to-use/</loc>
+  </url><url>
+    <loc>https://micro-frontends.tuando.net/docs/table-of-contents/</loc>
   </url><url>
     <loc>https://micro-frontends.tuando.net/docs/example/</loc>
     <lastmod>2021-08-07T17:02:20+07:00</lastmod>
   </url><url>
+    <loc>https://micro-frontends.tuando.net/docs/table-of-contents/advantages-and-disadvantages/</loc>
+  </url><url>
+    <loc>https://micro-frontends.tuando.net/docs/table-of-contents/method/</loc>
+  </url><url>
+    <loc>https://micro-frontends.tuando.net/</loc>
+    <lastmod>2021-08-07T17:02:20+07:00</lastmod>
+    <priority>0</priority>
+  </url><url>
     <loc>https://micro-frontends.tuando.net/docs/example/react-example/</loc>
     <lastmod>2021-08-07T17:02:20+07:00</lastmod>
+  </url><url>
+    <loc>https://micro-frontends.tuando.net/docs/example/react-redux/</loc>
+  </url><url>
+    <loc>https://micro-frontends.tuando.net/docs/example/web-components/</loc>
   </url><url>
     <loc>https://micro-frontends.tuando.net/posts/post-one/</loc>
     <lastmod>2021-08-07T17:02:20+07:00</lastmod>
