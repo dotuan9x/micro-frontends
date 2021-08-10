@@ -24,8 +24,8 @@ Cách tiếp cận này có một số hạn chế như:
 - Chúng ta sẽ phải re-compile (bundle) các ứng dụng chính và release lại mỗi khi các ứng dụng con có thay đổi (release version mới từ 0.0.1 ⇒ 0.02)
 - Không có sự đồng bộ chức năng giữa các ứng dụng chính nếu chúng ta bỏ xót quá trình đồng bộ version của ứng dụng con (Cũng có thể là một điểm lợi nếu chúng ta không muốn nâng cấp chức năng ở một trang nào đó)
 - Phụ thuộc các dependences với nhau
-    - Nếu project @feed-me/container sử dụng React và @feed-me/browse-restaurants cũng sử dụng React thì sẽ bị trùng lập thư viện và tăng dung lượng khi tải trang web
-    - Nếu project @feed-me/container sử dụng React và  @feed-me/browse-restaurants sử dụng chung React với project chính thì sẽ bị phụ thuộc vào version của project chính.
+    - Nếu project `@feed-me/container` sử dụng React và `@feed-me/browse-restaurants` cũng sử dụng React thì sẽ bị trùng lập thư viện và tăng dung lượng khi tải trang web
+    - Nếu project `@feed-me/container` sử dụng React và  `@feed-me/browse-restaurants` sử dụng chung React với project chính thì sẽ bị phụ thuộc vào version của project chính.
 
 ### **Run-time integration via iframes**
 ```html
