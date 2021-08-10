@@ -1,64 +1,57 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {HashRouter} from 'react-router-dom';
-import { Provider, useSelector } from 'react-redux';
-import { store } from './store';
+import {Provider, useSelector, useDispatch } from 'react-redux';
 
-const RelatedProducts = React.lazy(() => import('RelatedProducts/Products'));
+import {store as RelatedStore} from "./store";
+import reducer, {updateProductId} from './reducer';
 
-// Styles
-import 'tailwindcss/tailwind.css';
+function App(props) {
+    const { store = RelatedStore } = props;
 
-function App() {
+    useEffect(() => {
+        store.injectReducer('relatedReducer', reducer);
+    }, [])
+
     return (
         <HashRouter>
-            <React.Suspense fallback={null}>
-                <Provider store={store}>
-                    <Products />
-                </Provider>
-            </React.Suspense>
+            <Provider store={store || {}}>
+                <RelatedProduct />
+            </Provider>
         </HashRouter>
     );
 }
 
-const Products = () => {
+const RelatedProduct = () => {
+    const dispatch = useDispatch();
+
     const productId = useSelector((state) => state.productsReducer.productId);
-    const relatedProductId = useSelector((state) => {
-        return state && state.relatedReducer && state.relatedReducer.productId ? state.relatedReducer.productId : null
+    const products = useSelector((state) => {
+        const product = state.productsReducer.products.find(product => product.id === productId);
+
+        return state.productsReducer.products.filter(prod => product.related.indexOf(prod.id) >= 0)
     });
-    const products = useSelector((state) => state.productsReducer.products);
-    const product = products.find(product => product.id === (relatedProductId || productId));
 
     return (
-        <div className="container flex flex-row m-10 border border-gray-100">
-            <div className="flex flex-col w-full p-5">
-                <div className="flex flex-row w-full justify-between">
-                    <h1 className="text-lg font-bold">The Model Store</h1>
-                    <div>Orders: 0 items</div>
-                </div>
-                <div className="flex flex-row">
-                    <div className="w-2/3">
-                        <img alt="" src={product.image} />
-                    </div>
-                    <div className="w-1/3 pt-10">
-                        <label className="text-lg font-medium">{product.title}</label>
-                        <ul className="flex flex-row mt-10">
-                            <li className="cursor-pointer border-b-2 border-white hover:border-gray-300">
-                                <img alt="" src="https://micro-frontends.org/0-model-store/images/tractor-red-thumb.jpg" />
+        <div className="border-l border-gray-100 p-5">
+            <h1 className="text-base font-medium">Related products</h1>
+            <ul className="flex flex-col">
+                {
+                    products.map((product) => {
+                        return (
+                            <li key={product.id} className="cursor-pointer opacity-100 hover:opacity-80">
+                                <img className="w-36" onClick={() => dispatch(updateProductId(product.id))} alt="" src={product.image} />
                             </li>
-                            <li className="cursor-pointer border-b-2 border-white hover:border-gray-300">
-                                <img alt="" src="https://micro-frontends.org/0-model-store/images/tractor-green-thumb.jpg" />
-                            </li>
-                            <li className="cursor-pointer border-b-2 border-white hover:border-gray-300">
-                                <img alt="" src="https://micro-frontends.org/0-model-store/images/tractor-blue-thumb.jpg" />
-                            </li>
-                        </ul>
-                        <button className="font-medium hover:bg-gray-50 border border-gray-300 rounded p-3 mt-10">Buy for 66,00 $</button>
-                    </div>
-                </div>
-            </div>
-            <RelatedProducts store={store} />
+                        )
+                    })
+                }
+            </ul>
         </div>
     )
 }
+
+App.propTypes = {
+    children: PropTypes.Any
+};
 
 export default App;

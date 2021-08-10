@@ -1,6 +1,7 @@
 import { combineReducers, createStore, compose } from 'redux';
 
 const initialState = {
+    title: 'The Model Store',
     productId: 1,
     products: [
         {

@@ -2,18 +2,14 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container;
 const dependencies = require("./package.json").dependencies;
-const publicPath = '/';
+const publicPath = 'auto';
 
 module.exports = {
     devtool: 'inline-source-map',
     mode: 'development',
     entry: [path.resolve('src/index.jsx')],
     output: {
-        path: path.resolve('dist'),
-        filename: '[name].js',
-        chunkFilename: '[name].js',
         publicPath: publicPath,
-        crossOriginLoading: 'anonymous'
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -42,22 +38,32 @@ module.exports = {
         open: false,
         hot: true,
         historyApiFallback: true,
-        port: 8001
+        port: 8002,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+        }
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'products',
-            library: {type: 'var', name: 'products'},
-            remotes: {
-                RelatedProducts: 'RelatedProducts',
+            name: 'Products',
+            library: {type: 'var', name: 'Products'},
+            filename: 'products.js',
+            exposes: {
+                './App': './src/App',
             },
             shared: {
-                react: {
+                'react': {
                     eager: true,
                     singleton: true,
                     requiredVersion: dependencies.react,
                 },
-            },
+                'react-dom': {
+                    eager: true,
+                    singleton: true,
+                }
+            }
         }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),
