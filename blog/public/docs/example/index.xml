@@ -18,6 +18,16 @@ Source codeDemo</description>
     </item>
     
     <item>
+      <title>Run-time integration via JavaScript</title>
+      <link>https://micro-frontends.tuando.net/docs/example/run-time-integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://micro-frontends.tuando.net/docs/example/run-time-integration/</guid>
+      <description>Run-time integration via JavaScript#Trong React thông thường file index.jsx ta sẽ render &amp;lt;App /&amp;gt; vào trong một div element có id là root như &amp;lt;div id=&amp;quot;root&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+// /run-time-integration/products/src/index.jsx import React from &amp;#34;react&amp;#34;; import ReactDOM from &amp;#34;react-dom&amp;#34;; import App from &amp;#34;./App&amp;#34;; ReactDOM.render(&amp;lt;App /&amp;gt;, document.getElementById(&amp;#34;root&amp;#34;)); Ta sẽ chỉnh lại như sau, khai báo một function global renderProducts truyển vào parameter containerId và tiến hành sử dụng ReactDOM render &amp;lt;App /&amp;gt; vào trong element này.</description>
+    </item>
+    
+    <item>
       <title>Web components</title>
       <link>https://micro-frontends.tuando.net/docs/example/web-components/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

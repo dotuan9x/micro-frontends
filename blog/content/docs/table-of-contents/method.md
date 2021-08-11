@@ -64,6 +64,8 @@ Tham khảo ví dụ: https://micro-frontends.tuando.net/docs/example/iframes/
 
 ### **Run-time integration via JavaScript**
 
+Tham khảo ví dụ: https://micro-frontends.tuando.net/docs/example/web-components/
+
 ### **Run-time integration via Web Components**
 Cách tiếp cận này cho phép chúng ta khai báo một HTML Custom Element, ví dụ như ta khai báo một HTML Custom Element `<footer-order></footer-order>` thì chỗ nào muốn sử dụng ta chỉ cần chèn đoạn mã `<footer-order></footer-order>` là có thể sử dụng được rồi.
 

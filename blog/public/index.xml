@@ -37,6 +37,26 @@ Nhược điểm#</description>
     </item>
     
     <item>
+      <title>Run-time integration via JavaScript</title>
+      <link>https://micro-frontends.tuando.net/docs/example/run-time-integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://micro-frontends.tuando.net/docs/example/run-time-integration/</guid>
+      <description>Run-time integration via JavaScript#Trong React thông thường file index.jsx ta sẽ render &amp;lt;App /&amp;gt; vào trong một div element có id là root như &amp;lt;div id=&amp;quot;root&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+// /run-time-integration/products/src/index.jsx import React from &amp;#34;react&amp;#34;; import ReactDOM from &amp;#34;react-dom&amp;#34;; import App from &amp;#34;./App&amp;#34;; ReactDOM.render(&amp;lt;App /&amp;gt;, document.getElementById(&amp;#34;root&amp;#34;)); Ta sẽ chỉnh lại như sau, khai báo một function global renderProducts truyển vào parameter containerId và tiến hành sử dụng ReactDOM render &amp;lt;App /&amp;gt; vào trong element này.</description>
+    </item>
+    
+    <item>
+      <title>Một số phương pháp triển khai Micro Frontends</title>
+      <link>https://micro-frontends.tuando.net/docs/table-of-contents/method/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://micro-frontends.tuando.net/docs/table-of-contents/method/</guid>
+      <description>Một số phương pháp triển khai Micro Frontends#Build-time integration#là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
+{ &amp;#34;name&amp;#34;: &amp;#34;@feed-me/container&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;A food delivery web app&amp;#34;, &amp;#34;dependencies&amp;#34;: { &amp;#34;@feed-me/browse-restaurants&amp;#34;: &amp;#34;^1.2.3&amp;#34;, &amp;#34;@feed-me/order-food&amp;#34;: &amp;#34;^4.5.6&amp;#34;, &amp;#34;@feed-me/user-profile&amp;#34;: &amp;#34;^7.8.9&amp;#34; } } Cách tiếp cận này có một số hạn chế như:</description>
+    </item>
+    
+    <item>
       <title>Web components</title>
       <link>https://micro-frontends.tuando.net/docs/example/web-components/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -52,16 +72,6 @@ Nhược điểm#</description>
       
       <guid>https://micro-frontends.tuando.net/docs/example/react-example/</guid>
       <description>Module Federation React Example#Source codeDemo</description>
-    </item>
-    
-    <item>
-      <title>Một số phương pháp triển khai Micro Frontends</title>
-      <link>https://micro-frontends.tuando.net/docs/table-of-contents/method/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://micro-frontends.tuando.net/docs/table-of-contents/method/</guid>
-      <description>Một số phương pháp triển khai Micro Frontends#Build-time integration#là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
-{ &amp;#34;name&amp;#34;: &amp;#34;@feed-me/container&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;A food delivery web app&amp;#34;, &amp;#34;dependencies&amp;#34;: { &amp;#34;@feed-me/browse-restaurants&amp;#34;: &amp;#34;^1.2.3&amp;#34;, &amp;#34;@feed-me/order-food&amp;#34;: &amp;#34;^4.5.6&amp;#34;, &amp;#34;@feed-me/user-profile&amp;#34;: &amp;#34;^7.8.9&amp;#34; } } Cách tiếp cận này có một số hạn chế như:</description>
     </item>
     
     <item>

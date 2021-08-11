@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Run-time integration via JavaScript#Trong React thông thường file index.jsx ta sẽ render &lt;App /&gt; vào trong một div element có id là root như &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+// /run-time-integration/products/src/index.jsx import React from &#34;react&#34;; import ReactDOM from &#34;react-dom&#34;; import App from &#34;./App&#34;; ReactDOM.render(&lt;App /&gt;, document.getElementById(&#34;root&#34;)); Ta sẽ chỉnh lại như sau, khai báo một function global renderProducts truyển vào parameter containerId và tiến hành sử dụng ReactDOM render &lt;App /&gt; vào trong element này.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Run-time integration via JavaScript" />
+<meta property="og:description" content="Run-time integration via JavaScript#Trong React thông thường file index.jsx ta sẽ render &lt;App /&gt; vào trong một div element có id là root như &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+// /run-time-integration/products/src/index.jsx import React from &#34;react&#34;; import ReactDOM from &#34;react-dom&#34;; import App from &#34;./App&#34;; ReactDOM.render(&lt;App /&gt;, document.getElementById(&#34;root&#34;)); Ta sẽ chỉnh lại như sau, khai báo một function global renderProducts truyển vào parameter containerId và tiến hành sử dụng ReactDOM render &lt;App /&gt; vào trong element này." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://micro-frontends.tuando.net/docs/example/run-time-integration/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Run-time integration via JavaScript | Micro frontends</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.f0b240eca9513b9d27a52e87751c360aa01cc55465c8e443564d2f5df00301b0.js" integrity="sha256-8LJA7KlRO50npS6HdRw2CqAcxVRlyORDVk0vXfADAbA=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Micro frontends</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Micro Frontends</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/when-to-use/" class="">Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/advantages-and-disadvantages/" class="">Một số ưu điểm và nhược điểm của Micro Frontends</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/method/" class="">Một số phương pháp triển khai Micro Frontends</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-090e5e9541fbf7abe3678403e1b40824" class="toggle" checked />
+    <label for="section-090e5e9541fbf7abe3678403e1b40824" class="flex justify-between">
+      <a role="button" class="">Ví dụ</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/iframes/" class="">Iframes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/run-time-integration/" class=" active">Run-time integration via JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/web-components/" class="">Web components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/react-example/" class="">Module Federation React Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/react-redux/" class="">Module Federation React Redux</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/dotuan9x/micro-frontends" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Run-time integration via JavaScript</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#run-time-integration-via-javascript">Run-time integration via JavaScript</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="run-time-integration-via-javascript">
+  Run-time integration via JavaScript
+  <a class="anchor" href="#run-time-integration-via-javascript">#</a>
+</h2>
+<p>Trong React thông thường file <code>index.jsx</code> ta sẽ render <code>&lt;App /&gt;</code> vào trong một div element có id là root như <code>&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// /run-time-integration/products/src/index.jsx
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-dom&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./App&#34;</span>;
+
+<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">App</span> /&gt;, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;root&#34;</span>));
+</code></pre></div><p>Ta sẽ chỉnh lại như sau, khai báo một function global <code>renderProducts</code> truyển vào parameter <code>containerId</code> và tiến hành sử dụng ReactDOM render <code>&lt;App /&gt;</code> vào trong element này.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// /run-time-integration/products/src/index.jsx
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-dom&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./App&#34;</span>;
+
+window.<span style="color:#a6e22e">renderProducts</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">containerId</span>, <span style="color:#a6e22e">history</span>) =&gt; {
+    <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+        &lt;<span style="color:#f92672">App</span> <span style="color:#a6e22e">history</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">history</span>} /&gt;,
+        document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#a6e22e">containerId</span>),
+    );
+};
+
+</code></pre></div><p>Trong file index.html của <code>container</code>, ta load script file bundle của project <code>products</code> và sau đó gọi global function <code>renderProducts</code> để render app <code>products</code> vào trong ứng dụng <code>container</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- /run-time-integration/container/public/index.html --&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;The Model Store&lt;/<span style="color:#f92672">title</span>&gt;
+    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>&gt;
+    <span style="color:#75715e">&lt;!-- Load file bundle của project products  --&gt;</span>
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:8002/main.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+
+    <span style="color:#75715e">&lt;!-- Gọi function renderProducts để render app products vào element id có name products --&gt;</span>
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+        window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> () =&gt; {
+            window.<span style="color:#a6e22e">renderProducts</span>(<span style="color:#e6db74">&#39;products&#39;</span>)
+        }
+    &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>Và kết quả sẽ như sau, ứng dụng <code>container</code> đã có thêm phần Related products của ứng dụng <code>products</code>
+<img src="/images/react-example.png" alt="Iframe" /></p>
+
+
+
+  
+  
+
+
+<a  href="https://github.com/dotuan9x/micro-frontends/tree/master/run-time-integration"   target="_blank" rel="noopener"  class="book-btn">
+  Source code
+</a>
+
+
+
+
+  
+  
+
+
+<a  href="https://micro-frontends.tuando.net/demo/run-time-integration#/"   target="_blank" rel="noopener"  class="book-btn">
+  Demo
+</a>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#run-time-integration-via-javascript">Run-time integration via JavaScript</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
