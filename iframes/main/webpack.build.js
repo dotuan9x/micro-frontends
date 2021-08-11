@@ -9,7 +9,7 @@ module.exports = {
         path: path.resolve('dist'),
         filename: '[name].js',
         chunkFilename: '[name].js',
-        publicPath: 'https://micro-frontends.tuando.net/demo/iframes/dist/',
+        publicPath: 'https://micro-frontends.tuando.net/demo/iframes/main/dist/',
         crossOriginLoading: 'anonymous'
     },
     resolve: {
