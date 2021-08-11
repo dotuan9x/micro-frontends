@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Một số phương pháp triển khai Micro Frontends #  Build-time integration #  là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
+<meta name="description" content="Một số phương pháp triển khai Micro Frontends#Build-time integration#là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
 { &#34;name&#34;: &#34;@feed-me/container&#34;, &#34;version&#34;: &#34;1.0.0&#34;, &#34;description&#34;: &#34;A food delivery web app&#34;, &#34;dependencies&#34;: { &#34;@feed-me/browse-restaurants&#34;: &#34;^1.2.3&#34;, &#34;@feed-me/order-food&#34;: &#34;^4.5.6&#34;, &#34;@feed-me/user-profile&#34;: &#34;^7.8.9&#34; } } Cách tiếp cận này có một số hạn chế như:">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Một số phương pháp triển khai Micro Frontends" />
-<meta property="og:description" content="Một số phương pháp triển khai Micro Frontends #  Build-time integration #  là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
+<meta property="og:description" content="Một số phương pháp triển khai Micro Frontends#Build-time integration#là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
 { &#34;name&#34;: &#34;@feed-me/container&#34;, &#34;version&#34;: &#34;1.0.0&#34;, &#34;description&#34;: &#34;A food delivery web app&#34;, &#34;dependencies&#34;: { &#34;@feed-me/browse-restaurants&#34;: &#34;^1.2.3&#34;, &#34;@feed-me/order-food&#34;: &#34;^4.5.6&#34;, &#34;@feed-me/user-profile&#34;: &#34;^7.8.9&#34; } } Cách tiếp cận này có một số hạn chế như:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://micro-frontends.tuando.net/docs/table-of-contents/method/" /><meta property="article:section" content="docs" />
 
-
+<meta property="article:modified_time" content="2021-08-10T23:15:06+07:00" />
 
 <title>Một số phương pháp triển khai Micro Frontends | Micro frontends</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.6bebcbcd339edc5e0d94f888ffca20ce64e62f9a98e44899a6d90c6acb04a7bf.js" integrity="sha256-a&#43;vLzTOe3F4NlPiI/8ogzmTmL5qY5EiZptkMassEp78=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.62d5b1dcfd22cfddce764941a0b2202055f1e494f73154b8b6043e782f95d74a.js" integrity="sha256-YtWx3P0iz93OdklBoLIgIFXx5JT3MVS4tgQ&#43;eC&#43;V10o=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -142,7 +142,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://micro-frontends.tuando.net/docs/example/react-example/" class="">React Example</a>
+    <a href="https://micro-frontends.tuando.net/docs/example/iframes/" class="">Iframes</a>
   
 
         </li>
@@ -155,7 +155,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://micro-frontends.tuando.net/docs/example/react-redux/" class="">React Redux</a>
+    <a href="https://micro-frontends.tuando.net/docs/example/web-components/" class="">Web components</a>
   
 
         </li>
@@ -168,7 +168,20 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://micro-frontends.tuando.net/docs/example/web-components/" class="">Web Components</a>
+    <a href="https://micro-frontends.tuando.net/docs/example/react-example/" class="">Module Federation React Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/react-redux/" class="">Module Federation React Redux</a>
   
 
         </li>
@@ -252,6 +265,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#run-time-integration-via-javascript"><strong>Run-time integration via JavaScript</strong></a></li>
             <li><a href="#run-time-integration-via-web-components"><strong>Run-time integration via Web Components</strong></a></li>
             <li><a href="#module-federation-webpack-5"><strong>Module Federation Webpack 5</strong></a></li>
+            <li><a href="#tài-liệu-tham-khảo"><em><strong>Tài liệu tham khảo:</strong></em>*</a></li>
           </ul>
         </li>
       </ul>
@@ -293,8 +307,8 @@ https://github.com/alex-shpak/hugo-book
 <li>Không có sự đồng bộ chức năng giữa các ứng dụng chính nếu chúng ta bỏ xót quá trình đồng bộ version của ứng dụng con (Cũng có thể là một điểm lợi nếu chúng ta không muốn nâng cấp chức năng ở một trang nào đó)</li>
 <li>Phụ thuộc các dependences với nhau
 <ul>
-<li>Nếu project @feed-me/container sử dụng React và @feed-me/browse-restaurants cũng sử dụng React thì sẽ bị trùng lập thư viện và tăng dung lượng khi tải trang web</li>
-<li>Nếu project @feed-me/container sử dụng React và  @feed-me/browse-restaurants sử dụng chung React với project chính thì sẽ bị phụ thuộc vào version của project chính.</li>
+<li>Nếu project <code>@feed-me/container</code> sử dụng React và <code>@feed-me/browse-restaurants</code> cũng sử dụng React thì sẽ bị trùng lập thư viện và tăng dung lượng khi tải trang web</li>
+<li>Nếu project <code>@feed-me/container</code> sử dụng React và  <code>@feed-me/browse-restaurants</code> sử dụng chung React với project chính thì sẽ bị phụ thuộc vào version của project chính.</li>
 </ul>
 </li>
 </ul>
@@ -333,6 +347,7 @@ https://github.com/alex-shpak/hugo-book
 <li>Phải tải lại toàn bộ trang khi thay đổi đường dẫn</li>
 <li>Khó khăn trong việc giao tiếp giữa các chức năng</li>
 </ul>
+<p>Tham khảo ví dụ: <a href="https://micro-frontends.tuando.net/docs/example/iframes/">https://micro-frontends.tuando.net/docs/example/iframes/</a></p>
 <h3 id="run-time-integration-via-javascript">
   <strong>Run-time integration via JavaScript</strong>
   <a class="anchor" href="#run-time-integration-via-javascript">#</a>
@@ -341,11 +356,24 @@ https://github.com/alex-shpak/hugo-book
   <strong>Run-time integration via Web Components</strong>
   <a class="anchor" href="#run-time-integration-via-web-components">#</a>
 </h3>
-<p>Cách tiếp cận này cho phép chúng ta khai báo một HTML Custom element, ví dụ như ta khai báo một HTML Custom element <footer-order></footer-order> thì chỗ nào muốn sử dụng ta chỉ cần chèn đoạn mã <footer-order></footer-order> là có thể sử dụng một cách vi vu</p>
+<p>Cách tiếp cận này cho phép chúng ta khai báo một HTML Custom Element, ví dụ như ta khai báo một HTML Custom Element <code>&lt;footer-order&gt;&lt;/footer-order&gt;</code> thì chỗ nào muốn sử dụng ta chỉ cần chèn đoạn mã <code>&lt;footer-order&gt;&lt;/footer-order&gt;</code> là có thể sử dụng được rồi.</p>
+<p>Tham khảo ví dụ: <a href="https://micro-frontends.tuando.net/docs/example/web-components/">https://micro-frontends.tuando.net/docs/example/web-components/</a></p>
 <h3 id="module-federation-webpack-5">
   <strong>Module Federation Webpack 5</strong>
   <a class="anchor" href="#module-federation-webpack-5">#</a>
 </h3>
+<p>Module Federation là một tính năng mới của Webpack 5. Nó cho phép chúng ta cấu hình để một ứng dụng có thể dynamic load code từ một ứng dụng khác.</p>
+<p>Hiểu đơn giản là chúng ta có 2 ứng dụng được phát triển độc lập A và B, ứng dụng B là một phần nhỏ chức năng của ứng dụng A. Module Federation sẽ cho phép ta nhúng ứng dụng B và ứng dụng A và chia sẻ tài nguyên giữa chúng.</p>
+<p>Chi tiết các bạn tham khảo tài liệu tại <a href="https://webpack.js.org/concepts/module-federation/">Module Federation</a> và các ví dụ tại <a href="https://github.com/module-federation/module-federation-examples">Module Federation Examples</a></p>
+<p>Tham khảo ví dụ:</p>
+<p>React: <a href="https://micro-frontends.tuando.net/docs/example/react-example/">https://micro-frontends.tuando.net/docs/example/react-example/</a></p>
+<p>React: <a href="https://micro-frontends.tuando.net/docs/example/react-redux/">https://micro-frontends.tuando.net/docs/example/react-redux/</a></p>
+<h3 id="tài-liệu-tham-khảo">
+  <em><strong>Tài liệu tham khảo:</strong></em>*
+  <a class="anchor" href="#t%c3%a0i-li%e1%bb%87u-tham-kh%e1%ba%a3o">#</a>
+</h3>
+<p><a href="https://martinfowler.com/articles/micro-frontends.html">https://martinfowler.com/articles/micro-frontends.html</a></p>
+<p><a href="https://micro-frontends.org/">https://micro-frontends.org/</a></p>
 </article>
  
       
@@ -355,6 +383,12 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
+
+  <div><a class="flex align-center" href="https://github.com/dotuan9x/micro-frontends/commit/4bf218c03a8f8110771b9dfc5d965c889689a2ec" title='Last modified by Tuấn Đỗ Văn | August 10, 2021' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>August 10, 2021</span>
+    </a>
+  </div>
 
 
 
@@ -396,6 +430,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#run-time-integration-via-javascript"><strong>Run-time integration via JavaScript</strong></a></li>
             <li><a href="#run-time-integration-via-web-components"><strong>Run-time integration via Web Components</strong></a></li>
             <li><a href="#module-federation-webpack-5"><strong>Module Federation Webpack 5</strong></a></li>
+            <li><a href="#tài-liệu-tham-khảo"><em><strong>Tài liệu tham khảo:</strong></em>*</a></li>
           </ul>
         </li>
       </ul>

@@ -60,9 +60,32 @@ Hạn chế:
 - Phải tải lại toàn bộ trang khi thay đổi đường dẫn
 - Khó khăn trong việc giao tiếp giữa các chức năng
 
+Tham khảo ví dụ: https://micro-frontends.tuando.net/docs/example/iframes/
+
 ### **Run-time integration via JavaScript**
 
 ### **Run-time integration via Web Components**
-Cách tiếp cận này cho phép chúng ta khai báo một HTML Custom element, ví dụ như ta khai báo một HTML Custom element <footer-order></footer-order> thì chỗ nào muốn sử dụng ta chỉ cần chèn đoạn mã <footer-order></footer-order> là có thể sử dụng một cách vi vu
+Cách tiếp cận này cho phép chúng ta khai báo một HTML Custom Element, ví dụ như ta khai báo một HTML Custom Element `<footer-order></footer-order>` thì chỗ nào muốn sử dụng ta chỉ cần chèn đoạn mã `<footer-order></footer-order>` là có thể sử dụng được rồi.
+
+
+Tham khảo ví dụ: https://micro-frontends.tuando.net/docs/example/web-components/
 
 ### **Module Federation Webpack 5**
+Module Federation là một tính năng mới của Webpack 5. Nó cho phép chúng ta cấu hình để một ứng dụng có thể dynamic load code từ một ứng dụng khác.
+
+Hiểu đơn giản là chúng ta có 2 ứng dụng được phát triển độc lập A và B, ứng dụng B là một phần nhỏ chức năng của ứng dụng A. Module Federation sẽ cho phép ta nhúng ứng dụng B và ứng dụng A và chia sẻ tài nguyên giữa chúng.
+
+Chi tiết các bạn tham khảo tài liệu tại [Module Federation](https://webpack.js.org/concepts/module-federation/) và các ví dụ tại [Module Federation Examples](https://github.com/module-federation/module-federation-examples)
+
+
+Tham khảo ví dụ: 
+
+React: https://micro-frontends.tuando.net/docs/example/react-example/
+
+React: https://micro-frontends.tuando.net/docs/example/react-redux/
+
+### ***Tài liệu tham khảo:****
+
+https://martinfowler.com/articles/micro-frontends.html
+
+https://micro-frontends.org/

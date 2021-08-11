@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/table-of-contents/when-to-use/</guid>
-      <description>Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends #   Có thể bạn sẽ muốn phát triển một progressive hoặc responsive web application nhưng bạn gặp khó khăn trong việc tích hợp vào source code hiện tại của mình Có thể bạn muốn sử dụng một thư viện mới để tăng tốc quá trình phát triển sản phẩm của mình (vd: trước đó sử dụng Angularjs (1.</description>
+      <description>Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends# Có thể bạn sẽ muốn phát triển một progressive hoặc responsive web application nhưng bạn gặp khó khăn trong việc tích hợp vào source code hiện tại của mình Có thể bạn muốn sử dụng một thư viện mới để tăng tốc quá trình phát triển sản phẩm của mình (vd: trước đó sử dụng Angularjs (1.</description>
     </item>
     
     <item>
@@ -21,7 +21,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/table-of-contents/advantages-and-disadvantages/</guid>
-      <description>Một số ưu điểm và nhược điểm của Micro Frontends #  Ưu điểm #  Nhược điểm #  </description>
+      <description>Một số ưu điểm và nhược điểm của Micro Frontends#Ưu điểm#Tách biệt các module chức năng thành nhiều phần source code riêng biệt. Từ đó giảm các dependence ở mỗi project, lượng code sẽ ít hơn, giúp cho quá trình build deploy nhanh hơn và các file js bundle cũng sẽ nhẹ hơn
+Nhược điểm#</description>
     </item>
     
     <item>
@@ -30,7 +31,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/table-of-contents/method/</guid>
-      <description>Một số phương pháp triển khai Micro Frontends #  Build-time integration #  là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
+      <description>Một số phương pháp triển khai Micro Frontends#Build-time integration#là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
 { &amp;#34;name&amp;#34;: &amp;#34;@feed-me/container&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;A food delivery web app&amp;#34;, &amp;#34;dependencies&amp;#34;: { &amp;#34;@feed-me/browse-restaurants&amp;#34;: &amp;#34;^1.2.3&amp;#34;, &amp;#34;@feed-me/order-food&amp;#34;: &amp;#34;^4.5.6&amp;#34;, &amp;#34;@feed-me/user-profile&amp;#34;: &amp;#34;^7.8.9&amp;#34; } } Cách tiếp cận này có một số hạn chế như:</description>
     </item>
     
