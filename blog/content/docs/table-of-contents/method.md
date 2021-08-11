@@ -86,7 +86,7 @@ React: https://micro-frontends.tuando.net/docs/example/react-example/
 
 React: https://micro-frontends.tuando.net/docs/example/react-redux/
 
-### ***Tài liệu tham khảo:****
+### ***Tài liệu tham khảo:***
 
 https://martinfowler.com/articles/micro-frontends.html
 

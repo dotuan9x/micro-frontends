@@ -12,7 +12,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/table-of-contents/when-to-use/</guid>
-      <description>Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends# Có thể bạn sẽ muốn phát triển một progressive hoặc responsive web application nhưng bạn gặp khó khăn trong việc tích hợp vào source code hiện tại của mình Có thể bạn muốn sử dụng một thư viện mới để tăng tốc quá trình phát triển sản phẩm của mình (vd: trước đó sử dụng Angularjs (1.</description>
+      <description>Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends#Một số trường hợp sau đây, chúng ta có thể sử dụng Micro Frontends
+Có thể bạn sẽ muốn phát triển một progressive hoặc responsive web application nhưng bạn gặp khó khăn trong việc tích hợp vào source code hiện tại của mình
+Có thể bạn muốn sử dụng một thư viện mới để tăng tốc quá trình phát triển sản phẩm của mình (vd: trước đó sử dụng Angularjs (1.</description>
     </item>
     
     <item>
@@ -22,7 +24,7 @@
       
       <guid>https://micro-frontends.tuando.net/docs/table-of-contents/advantages-and-disadvantages/</guid>
       <description>Một số ưu điểm và nhược điểm của Micro Frontends#Ưu điểm#Tách biệt các module chức năng thành nhiều phần source code riêng biệt. Từ đó giảm các dependence ở mỗi project, lượng code sẽ ít hơn, giúp cho quá trình build deploy nhanh hơn và các file js bundle cũng sẽ nhẹ hơn
-Nhược điểm#</description>
+Có khả năng mở rộng một cách dễ dàng bằng cách nhiều team cùng tham gia</description>
     </item>
     
     <item>
