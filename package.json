@@ -10,7 +10,8 @@
       "iframes/*",
       "web-components/*",
       "react-example/*",
-      "react-redux/*"
+      "react-redux/*",
+      "run-time-integration/*"
     ]
   },
   "devDependencies": {
