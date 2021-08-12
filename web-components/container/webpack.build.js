@@ -1,6 +1,5 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const {ModuleFederationPlugin} = require('webpack').container;
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -10,7 +9,7 @@ module.exports = {
         path: path.resolve('dist'),
         filename: '[name].js',
         chunkFilename: '[name].js',
-        publicPath: 'https://micro-frontends.tuando.net/demo/react-example/main/dist/',
+        publicPath: 'https://micro-frontends.tuando.net/demo/web-components/container/dist/',
         crossOriginLoading: 'anonymous'
     },
     resolve: {
@@ -39,12 +38,6 @@ module.exports = {
         port: 8001
     },
     plugins: [
-        new ModuleFederationPlugin({
-            name: 'main',
-            remotes: {
-                Products: 'Products@https://micro-frontends.tuando.net/demo/react-example/products/dist/products.js',
-            }
-        }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),
             filename: path.resolve('../index.html'),

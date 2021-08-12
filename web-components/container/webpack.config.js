@@ -1,6 +1,5 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const {ModuleFederationPlugin} = require('webpack').container;
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -44,12 +43,6 @@ module.exports = {
         }
     },
     plugins: [
-        new ModuleFederationPlugin({
-            name: 'main',
-            remotes: {
-                Products: 'Products@http://localhost:8002/products.js',
-            }
-        }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),
             filename: './index.html',

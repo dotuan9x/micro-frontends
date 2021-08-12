@@ -1,13 +1,11 @@
 import React from 'react';
 
-const RelatedProducts = React.lazy(() => import('Products/App'));
-
 function App() {
     return (
         <React.Suspense fallback={null}>
             <div style={{width: 1000}} className="relative container mx-auto flex flex-row m-10 border-dashed border-2 border-red-500 rounded">
-                <div className="absolute -top-7 text-red-500 font-bold">Team Core (<a target="_blank" href="https://github.com/dotuan9x/micro-frontends/tree/master/react-example/main" rel="noreferrer">main</a>) </div>
-                <div className="flex flex-col w-full p-5">
+                <div className="absolute -top-7 text-red-500 font-bold">Team Core (<a target="_blank" href="https://github.com/dotuan9x/micro-frontends/tree/master/react-example/container" rel="noreferrer">container</a>) </div>
+                <div className="flex flex-col w-full p-5" style={{width: 790}}>
                     <div className="flex flex-row w-full justify-between">
                         <h1 className="text-lg font-bold">The Model Store</h1>
                         <div>Orders: 0 items</div>
@@ -33,8 +31,8 @@ function App() {
                         </div>
                     </div>
                 </div>
-                <div className="p-1">
-                    <RelatedProducts />
+                <div className="p-1" style={{width: 210}}>
+                    <iframe className="w-full h-full" src="https://micro-frontends.tuando.net/demo/react-example/products#/" />
                 </div>
             </div>
         </React.Suspense>

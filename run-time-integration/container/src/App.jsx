@@ -4,7 +4,7 @@ function App() {
     return (
         <React.Suspense fallback={null}>
             <div style={{width: 1000}} className="relative container mx-auto flex flex-row m-10 border-dashed border-2 border-red-500 rounded">
-                <div className="absolute -top-7 text-red-500 font-bold">Team Core (<a target="_blank" href="https://github.com/dotuan9x/micro-frontends/tree/master/react-example/main" rel="noreferrer">container</a>) </div>
+                <div className="absolute -top-7 text-red-500 font-bold">Team Core (<a target="_blank" href="https://github.com/dotuan9x/micro-frontends/tree/master/run-time-integration/container" rel="noreferrer">container</a>) </div>
                 <div className="flex flex-col w-full p-5">
                     <div className="flex flex-row w-full justify-between">
                         <h1 className="text-lg font-bold">The Model Store</h1>
