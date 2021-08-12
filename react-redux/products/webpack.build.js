@@ -1,13 +1,18 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const publicPath = 'auto';
+const {ModuleFederationPlugin} = require('webpack').container;
+const dependencies = require("./package.json").dependencies;
 
 module.exports = {
     devtool: 'inline-source-map',
     mode: 'development',
     entry: [path.resolve('src/index.jsx')],
     output: {
-        publicPath: publicPath,
+        path: path.resolve('dist'),
+        filename: '[name].js',
+        chunkFilename: '[name].js',
+        publicPath: 'https://micro-frontends.tuando.net/demo/react-redux/products/dist/',
+        crossOriginLoading: 'anonymous'
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -40,9 +45,28 @@ module.exports = {
         }
     },
     plugins: [
+        new ModuleFederationPlugin({
+            name: 'Products',
+            library: {type: 'var', name: 'Products'},
+            filename: 'products.js',
+            exposes: {
+                './App': './src/App',
+            },
+            shared: {
+                'react': {
+                    eager: true,
+                    singleton: true,
+                    requiredVersion: dependencies.react,
+                },
+                'react-dom': {
+                    eager: true,
+                    singleton: true,
+                }
+            }
+        }),
         new HTMLWebpackPlugin({
             template: path.resolve('public/index.html'),
-            filename: './index.html',
+            filename: path.resolve('index.html'),
             chunksSortMode: 'none'
         })
     ]

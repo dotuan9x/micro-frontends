@@ -45,7 +45,7 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'main',
+            name: 'container',
             remotes: {
                 Products: 'Products@http://localhost:8002/products.js',
             }

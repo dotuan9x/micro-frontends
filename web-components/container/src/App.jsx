@@ -32,7 +32,7 @@ function App() {
                     </div>
                 </div>
                 <div className="p-1">
-
+                    <web-components-products />
                 </div>
             </div>
         </React.Suspense>
