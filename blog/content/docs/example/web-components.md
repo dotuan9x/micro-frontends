@@ -53,7 +53,7 @@ const App = () => {
   )
 };
 
-export default OneLoyaltyTechcombank;
+export default App;
 ```
 
 ![Iframe](/images/react-example.png)
