@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Web components#Source codeDemo">
+<meta name="description" content="Web components#Để khai báo một HTML Custom Element ta thực hiện như sau:
+// /web-components/products/src/index.jsx import React from &#34;react&#34;; import ReactDOM from &#34;react-dom&#34;; import App from &#34;./App&#34;; class Webcomponents extends HTMLElement { constructor() { super(); } connectedCallback() { ReactDOM.render(&lt;App /&gt;, this); } } customElements.define(&#39;web-components-products&#39;, Webcomponents); Trong file index.html của project container ta load bundle file của project products
+&lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;title&gt;The Model Store&lt;/title&gt; &lt;script src=&#34;https://micro-frontends.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Web components" />
-<meta property="og:description" content="Web components#Source codeDemo" />
+<meta property="og:description" content="Web components#Để khai báo một HTML Custom Element ta thực hiện như sau:
+// /web-components/products/src/index.jsx import React from &#34;react&#34;; import ReactDOM from &#34;react-dom&#34;; import App from &#34;./App&#34;; class Webcomponents extends HTMLElement { constructor() { super(); } connectedCallback() { ReactDOM.render(&lt;App /&gt;, this); } } customElements.define(&#39;web-components-products&#39;, Webcomponents); Trong file index.html của project container ta load bundle file của project products
+&lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;title&gt;The Model Store&lt;/title&gt; &lt;script src=&#34;https://micro-frontends." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://micro-frontends.tuando.net/docs/example/web-components/" /><meta property="article:section" content="docs" />
 
@@ -16,7 +20,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.bb973d732b4076c70ae362d4376c1fb0a6af3e3123022d2c26494d7fedc9478e.js" integrity="sha256-u5c9cytAdscK42LUN2wfsKavPjEjAi0sJklNf&#43;3JR44=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.af39b0186dd2466e38bddad7e2aab3ca59255668c2803e4f50c3e532241b1b39.js" integrity="sha256-rzmwGG3SRm44vdrX4qqzylklVmjCgD5PUMPlMiQbGzk=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -288,7 +292,49 @@ https://github.com/alex-shpak/hugo-book
   Web components
   <a class="anchor" href="#web-components">#</a>
 </h2>
-<p><img src="/images/react-example.png" alt="Iframe" /></p>
+<p>Để khai báo một HTML Custom Element ta thực hiện như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// /web-components/products/src/index.jsx
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-dom&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./App&#34;</span>;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Webcomponents</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">HTMLElement</span> {
+    <span style="color:#a6e22e">constructor</span>() {
+        <span style="color:#66d9ef">super</span>();
+    }
+
+    <span style="color:#a6e22e">connectedCallback</span>() {
+        <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">App</span> /&gt;, <span style="color:#66d9ef">this</span>);
+    }
+}
+
+<span style="color:#a6e22e">customElements</span>.<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;web-components-products&#39;</span>, <span style="color:#a6e22e">Webcomponents</span>);
+</code></pre></div><p>Trong file <code>index.html</code> của project <code>container</code> ta load bundle file của project <code>products</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;The Model Store&lt;/<span style="color:#f92672">title</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://micro-frontends.tuando.net/demo/web-components/products/dist/main.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+
+</code></pre></div><p>Tiếp đến ta gắn HTML ta <code> &lt;web-components-products /&gt;</code> vào chỗ cần hiện thị trong project <code>container</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> () =&gt; {
+  <span style="color:#66d9ef">return</span> (
+    &lt;&gt;
+      &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">The</span> <span style="color:#a6e22e">model</span> <span style="color:#a6e22e">store</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+      &lt;<span style="color:#f92672">web</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">components</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">products</span> /&gt;
+    &lt;/&gt;
+  )
+};
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">OneLoyaltyTechcombank</span>;
+</code></pre></div><p><img src="/images/react-example.png" alt="Iframe" /></p>
 
 
 

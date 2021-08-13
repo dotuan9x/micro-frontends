@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Module Federation React Example#Source codeDemo">
+<meta name="description" content="Module Federation React Example#Module Federation là một plugin của webpack 5, nên ta tiến hành cấu hình webpack như sau:
+Import ModuleFederationPlugin của webpack (lưu ý module này chỉ có trong webpack 5 trở lên)
+// webpack.config const {ModuleFederationPlugin} = require(&#39;webpack&#39;).container; Sau đó ta cấu hình plugin trong project products như sau
+// webpack.config (products project)  plugins: [ new ModuleFederationPlugin({ name: &#39;Products&#39;, library: {type: &#39;var&#39;, name: &#39;Products&#39;}, filename: &#39;products.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Module Federation React Example" />
-<meta property="og:description" content="Module Federation React Example#Source codeDemo" />
+<meta property="og:description" content="Module Federation React Example#Module Federation là một plugin của webpack 5, nên ta tiến hành cấu hình webpack như sau:
+Import ModuleFederationPlugin của webpack (lưu ý module này chỉ có trong webpack 5 trở lên)
+// webpack.config const {ModuleFederationPlugin} = require(&#39;webpack&#39;).container; Sau đó ta cấu hình plugin trong project products như sau
+// webpack.config (products project)  plugins: [ new ModuleFederationPlugin({ name: &#39;Products&#39;, library: {type: &#39;var&#39;, name: &#39;Products&#39;}, filename: &#39;products." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://micro-frontends.tuando.net/docs/example/react-example/" /><meta property="article:section" content="docs" />
 
@@ -16,7 +22,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.bb973d732b4076c70ae362d4376c1fb0a6af3e3123022d2c26494d7fedc9478e.js" integrity="sha256-u5c9cytAdscK42LUN2wfsKavPjEjAi0sJklNf&#43;3JR44=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.af39b0186dd2466e38bddad7e2aab3ca59255668c2803e4f50c3e532241b1b39.js" integrity="sha256-rzmwGG3SRm44vdrX4qqzylklVmjCgD5PUMPlMiQbGzk=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -288,6 +294,69 @@ https://github.com/alex-shpak/hugo-book
   Module Federation React Example
   <a class="anchor" href="#module-federation-react-example">#</a>
 </h2>
+<p>Module Federation là một plugin của webpack 5, nên ta tiến hành cấu hình webpack như sau:</p>
+<p>Import <code>ModuleFederationPlugin</code> của webpack (lưu ý module này chỉ có trong webpack 5 trở lên)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// webpack.config
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">ModuleFederationPlugin</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;webpack&#39;</span>).<span style="color:#a6e22e">container</span>;
+</code></pre></div><p>Sau đó ta cấu hình plugin trong project <code>products</code> như sau</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// webpack.config (products project)
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ModuleFederationPlugin</span>({
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Products&#39;</span>,
+        <span style="color:#a6e22e">library</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;var&#39;</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Products&#39;</span>},
+        <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;products.js&#39;</span>,
+        <span style="color:#a6e22e">exposes</span><span style="color:#f92672">:</span> {
+            <span style="color:#e6db74">&#39;./App&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./src/App&#39;</span>,
+        },
+        <span style="color:#a6e22e">shared</span><span style="color:#f92672">:</span> {
+            <span style="color:#e6db74">&#39;react&#39;</span><span style="color:#f92672">:</span> {
+                <span style="color:#a6e22e">eager</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+                <span style="color:#a6e22e">singleton</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+                <span style="color:#a6e22e">requiredVersion</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">dependencies</span>.<span style="color:#a6e22e">react</span>,
+            },
+            <span style="color:#e6db74">&#39;react-dom&#39;</span><span style="color:#f92672">:</span> {
+                <span style="color:#a6e22e">eager</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+                <span style="color:#a6e22e">singleton</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+            }
+        }
+    }),
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HTMLWebpackPlugin</span>({
+        <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;public/index.html&#39;</span>),
+        <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./index.html&#39;</span>,
+        <span style="color:#a6e22e">chunksSortMode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;none&#39;</span>
+    })
+]
+</code></pre></div><p>Tiếp đó ta cấu hình webpack của project <code>container</code> như sau</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ModuleFederationPlugin</span>({
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;container&#39;</span>,
+        <span style="color:#a6e22e">remotes</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Products@http://localhost:8002/products.js&#39;</span>,
+        }
+    }),
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">HTMLWebpackPlugin</span>({
+        <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;public/index.html&#39;</span>),
+        <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./index.html&#39;</span>,
+        <span style="color:#a6e22e">chunksSortMode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;none&#39;</span>
+    })
+]
+</code></pre></div><p>Với thông tin cấu hình trên ta chú ý đoạn <code>'Products@http://localhost:8002/products.js'</code> thì <code>Products</code> là giá trị <code>name</code> trong phần cấu hình <code> library: {type: 'var', name: 'Products'}</code> của file webpack của project <code>products</code></p>
+<p>Và <code>http://localhost:8002/products.js</code> và domain và file bundle của project <code>products</code> sau khi được start lên</p>
+<p>Sau đó khi sử dụng ta chỉ việc import như một thư viện hoặc một component bình thường</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">RelatedProducts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">lazy</span>(() =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;Products/App&#39;</span>));
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+    <span style="color:#66d9ef">return</span> (
+        &lt;<span style="color:#f92672">React.Suspense</span> <span style="color:#a6e22e">fallback</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">null</span>}&gt;
+            &lt;<span style="color:#f92672">RelatedProducts</span> /&gt;
+        &lt;/<span style="color:#f92672">React.Suspense</span>&gt;
+    )
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
+</code></pre></div><p>Và kết quả sẽ như hình bên dưới</p>
 <p><img src="/images/react-example.png" alt="Iframe" /></p>
 
 

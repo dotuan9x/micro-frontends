@@ -12,9 +12,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/example/iframes/</guid>
-      <description>Iframe example#Để triển khai iframe thì đơn giản khỏi phải nói luôn. Ta chỉ cần chèn HTML tag &amp;lt;iframe src=&amp;quot;mico-frontends.tuando.net&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt; là có ngay một app khác xịn sò vào trong ứng dụng của mình liền.
+      <description>Iframe example#Để triển khai iframe thì đơn giản khỏi phải nói luôn. Ta chỉ cần chèn HTML tag &amp;lt;iframe src=&amp;quot;example.com&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt; là có ngay một app khác xịn sò vào trong ứng dụng của mình liền.
 Demo: Mình sẽ demo iframe bằng cách gắn một app khác (app products hiện thị các sản phẩm liên quan) vào một app chính như hình bên dưới.
-Source codeDemo</description>
+Trong file App.jsx của project container đã chèn HTML tag iframe như bên dưới, và kết quả sẽ như hình bên trên.</description>
     </item>
     
     <item>
@@ -33,7 +33,9 @@ Source codeDemo</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/example/web-components/</guid>
-      <description>Web components#Source codeDemo</description>
+      <description>Web components#Để khai báo một HTML Custom Element ta thực hiện như sau:
+// /web-components/products/src/index.jsx import React from &amp;#34;react&amp;#34;; import ReactDOM from &amp;#34;react-dom&amp;#34;; import App from &amp;#34;./App&amp;#34;; class Webcomponents extends HTMLElement { constructor() { super(); } connectedCallback() { ReactDOM.render(&amp;lt;App /&amp;gt;, this); } } customElements.define(&amp;#39;web-components-products&amp;#39;, Webcomponents); Trong file index.html của project container ta load bundle file của project products
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;The Model Store&amp;lt;/title&amp;gt; &amp;lt;script src=&amp;#34;https://micro-frontends.</description>
     </item>
     
     <item>
@@ -42,7 +44,10 @@ Source codeDemo</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/example/react-example/</guid>
-      <description>Module Federation React Example#Source codeDemo</description>
+      <description>Module Federation React Example#Module Federation là một plugin của webpack 5, nên ta tiến hành cấu hình webpack như sau:
+Import ModuleFederationPlugin của webpack (lưu ý module này chỉ có trong webpack 5 trở lên)
+// webpack.config const {ModuleFederationPlugin} = require(&amp;#39;webpack&amp;#39;).container; Sau đó ta cấu hình plugin trong project products như sau
+// webpack.config (products project)  plugins: [ new ModuleFederationPlugin({ name: &amp;#39;Products&amp;#39;, library: {type: &amp;#39;var&amp;#39;, name: &amp;#39;Products&amp;#39;}, filename: &amp;#39;products.</description>
     </item>
     
     <item>
@@ -51,7 +56,9 @@ Source codeDemo</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/example/react-redux/</guid>
-      <description>Module Federation React Redux#Source codeDemo</description>
+      <description>Module Federation React Redux#Tương tự như phần Module Federation React Example nhưng trong demo này có sử dụng Redux để giao tiếp giữa 2 app với nhau.
+Cụ thể là với demo bên dưới bạn có thể click vào sản phẩm ở phần Related products thì sản phẩm chính bên app container sẽ thay đổi theo
+Source codeDemo</description>
     </item>
     
   </channel>

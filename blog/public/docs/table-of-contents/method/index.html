@@ -4,21 +4,23 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Một số phương pháp triển khai Micro Frontends#Build-time integration#là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
-{ &#34;name&#34;: &#34;@feed-me/container&#34;, &#34;version&#34;: &#34;1.0.0&#34;, &#34;description&#34;: &#34;A food delivery web app&#34;, &#34;dependencies&#34;: { &#34;@feed-me/browse-restaurants&#34;: &#34;^1.2.3&#34;, &#34;@feed-me/order-food&#34;: &#34;^4.5.6&#34;, &#34;@feed-me/user-profile&#34;: &#34;^7.8.9&#34; } } Cách tiếp cận này có một số hạn chế như:">
+{ &#34;name&#34;: &#34;@micro-frontends/container&#34;, &#34;version&#34;: &#34;1.0.0&#34;, &#34;description&#34;: &#34;Micro frontends demo&#34;, &#34;dependencies&#34;: { &#34;@micro-frontends/products&#34;: &#34;^1.2.3&#34;, &#34;@micro-frontends/checkout&#34;: &#34;^4.5.6&#34;, &#34;@micro-frontends/user-profile&#34;: &#34;^7.8.9&#34; } } Cách tiếp cận này có một số hạn chế như:
+ Chúng ta sẽ phải re-compile (bundle) các ứng dụng chính và release lại mỗi khi các ứng dụng con có thay đổi (release version mới từ 0.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Một số phương pháp triển khai Micro Frontends" />
 <meta property="og:description" content="Một số phương pháp triển khai Micro Frontends#Build-time integration#là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
-{ &#34;name&#34;: &#34;@feed-me/container&#34;, &#34;version&#34;: &#34;1.0.0&#34;, &#34;description&#34;: &#34;A food delivery web app&#34;, &#34;dependencies&#34;: { &#34;@feed-me/browse-restaurants&#34;: &#34;^1.2.3&#34;, &#34;@feed-me/order-food&#34;: &#34;^4.5.6&#34;, &#34;@feed-me/user-profile&#34;: &#34;^7.8.9&#34; } } Cách tiếp cận này có một số hạn chế như:" />
+{ &#34;name&#34;: &#34;@micro-frontends/container&#34;, &#34;version&#34;: &#34;1.0.0&#34;, &#34;description&#34;: &#34;Micro frontends demo&#34;, &#34;dependencies&#34;: { &#34;@micro-frontends/products&#34;: &#34;^1.2.3&#34;, &#34;@micro-frontends/checkout&#34;: &#34;^4.5.6&#34;, &#34;@micro-frontends/user-profile&#34;: &#34;^7.8.9&#34; } } Cách tiếp cận này có một số hạn chế như:
+ Chúng ta sẽ phải re-compile (bundle) các ứng dụng chính và release lại mỗi khi các ứng dụng con có thay đổi (release version mới từ 0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://micro-frontends.tuando.net/docs/table-of-contents/method/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2021-08-11T23:54:05+07:00" />
+<meta property="article:modified_time" content="2021-08-12T00:04:45+07:00" />
 
 <title>Một số phương pháp triển khai Micro Frontends | Micro frontends</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.bb973d732b4076c70ae362d4376c1fb0a6af3e3123022d2c26494d7fedc9478e.js" integrity="sha256-u5c9cytAdscK42LUN2wfsKavPjEjAi0sJklNf&#43;3JR44=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.af39b0186dd2466e38bddad7e2aab3ca59255668c2803e4f50c3e532241b1b39.js" integrity="sha256-rzmwGG3SRm44vdrX4qqzylklVmjCgD5PUMPlMiQbGzk=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -305,23 +307,23 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p>là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;@feed-me/container&#34;</span>,
+  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;@micro-frontends/container&#34;</span>,
   <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;1.0.0&#34;</span>,
-  <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;A food delivery web app&#34;</span>,
+  <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Micro frontends demo&#34;</span>,
   <span style="color:#f92672">&#34;dependencies&#34;</span>: {
-    <span style="color:#f92672">&#34;@feed-me/browse-restaurants&#34;</span>: <span style="color:#e6db74">&#34;^1.2.3&#34;</span>,
-    <span style="color:#f92672">&#34;@feed-me/order-food&#34;</span>: <span style="color:#e6db74">&#34;^4.5.6&#34;</span>,
-    <span style="color:#f92672">&#34;@feed-me/user-profile&#34;</span>: <span style="color:#e6db74">&#34;^7.8.9&#34;</span>
+    <span style="color:#f92672">&#34;@micro-frontends/products&#34;</span>: <span style="color:#e6db74">&#34;^1.2.3&#34;</span>,
+    <span style="color:#f92672">&#34;@micro-frontends/checkout&#34;</span>: <span style="color:#e6db74">&#34;^4.5.6&#34;</span>,
+    <span style="color:#f92672">&#34;@micro-frontends/user-profile&#34;</span>: <span style="color:#e6db74">&#34;^7.8.9&#34;</span>
   }
 }
 </code></pre></div><p>Cách tiếp cận này có một số hạn chế như:</p>
 <ul>
 <li>Chúng ta sẽ phải re-compile (bundle) các ứng dụng chính và release lại mỗi khi các ứng dụng con có thay đổi (release version mới từ 0.0.1 ⇒ 0.02)</li>
 <li>Không có sự đồng bộ chức năng giữa các ứng dụng chính nếu chúng ta bỏ xót quá trình đồng bộ version của ứng dụng con (Cũng có thể là một điểm lợi nếu chúng ta không muốn nâng cấp chức năng ở một trang nào đó)</li>
-<li>Phụ thuộc các dependences với nhau
+<li>Phụ thuộc các dependencies với nhau
 <ul>
-<li>Nếu project <code>@feed-me/container</code> sử dụng React và <code>@feed-me/browse-restaurants</code> cũng sử dụng React thì sẽ bị trùng lập thư viện và tăng dung lượng khi tải trang web</li>
-<li>Nếu project <code>@feed-me/container</code> sử dụng React và  <code>@feed-me/browse-restaurants</code> sử dụng chung React với project chính thì sẽ bị phụ thuộc vào version của project chính.</li>
+<li>Nếu project <code>@micro-frontends/container</code> sử dụng React và <code>@micro-frontends/products</code> cũng sử dụng React thì sẽ bị trùng lập thư viện và tăng dung lượng khi tải trang web</li>
+<li>Nếu project <code>@micro-frontends/container</code> sử dụng React và  <code>@micro-frontends/products</code> sử dụng chung React với project chính thì sẽ bị phụ thuộc vào version của project chính.</li>
 </ul>
 </li>
 </ul>
@@ -331,18 +333,17 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;
   &lt;<span style="color:#f92672">head</span>&gt;
-    &lt;<span style="color:#f92672">title</span>&gt;Feed me!&lt;/<span style="color:#f92672">title</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Micro frontends&lt;/<span style="color:#f92672">title</span>&gt;
   &lt;/<span style="color:#f92672">head</span>&gt;
   &lt;<span style="color:#f92672">body</span>&gt;
-    &lt;<span style="color:#f92672">h1</span>&gt;Welcome to Feed me!&lt;/<span style="color:#f92672">h1</span>&gt;
+    &lt;<span style="color:#f92672">h1</span>&gt;Welcome to Micro frontends&lt;/<span style="color:#f92672">h1</span>&gt;
 
     &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;micro-frontend-container&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
 
     &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
       <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">microFrontendsByRoute</span> <span style="color:#f92672">=</span> {
-        <span style="color:#e6db74">&#39;/&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://browse.example.com/index.html&#39;</span>,
-        <span style="color:#e6db74">&#39;/order-food&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://order.example.com/index.html&#39;</span>,
-        <span style="color:#e6db74">&#39;/user-profile&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://profile.example.com/index.html&#39;</span>,
+        <span style="color:#e6db74">&#39;/&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://micro-frontends.tuando.net/demo/react-example&#39;</span>,
+        <span style="color:#e6db74">&#39;/products&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://micro-frontends.tuando.net/demo/react-example/products&#39;</span>
       };
 
       <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">iframe</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;micro-frontend-container&#39;</span>);
@@ -350,7 +351,8 @@ https://github.com/alex-shpak/hugo-book
     &lt;/<span style="color:#f92672">script</span>&gt;
   &lt;/<span style="color:#f92672">body</span>&gt;
 &lt;/<span style="color:#f92672">html</span>&gt;
-</code></pre></div><p>Mỗi lần thay đổi url từ <a href="https://acb.com/">https://acb.com/</a> sang <a href="https://acb.com/order-food">https://acb.com/order-food</a> phần nội dụng của trang sẽ được tải lại bởi một nội dung từ domain khác, trong ví dụ là <a href="https://order.example.com/index.html">https://order.example.com/index.html</a>.</p>
+</code></pre></div><p>Mỗi lần thay đổi url từ <code>/</code> sang <code>/products</code> phần nội dụng của trang sẽ được tải lại bởi một nội dung từ domain khác, trong ví dụ là <code>https://micro-frontends.tuando.net/demo/react-example/products</code>.</p>
+<p>Demo chi tiết: <a href="https://micro-frontends.tuando.net/docs/example/iframes/">https://micro-frontends.tuando.net/docs/example/iframes/</a></p>
 <p>Ưu điểm:</p>
 <ul>
 <li>Không bị ảnh hưởng bởi styles (CSS) giữa các trang chính và trang trong iframe</li>
@@ -360,18 +362,40 @@ https://github.com/alex-shpak/hugo-book
 <li>Phải tải lại toàn bộ trang khi thay đổi đường dẫn</li>
 <li>Khó khăn trong việc giao tiếp giữa các chức năng</li>
 </ul>
-<p>Tham khảo ví dụ: <a href="https://micro-frontends.tuando.net/docs/example/iframes/">https://micro-frontends.tuando.net/docs/example/iframes/</a></p>
 <h3 id="run-time-integration-via-javascript">
   <strong>Run-time integration via JavaScript</strong>
   <a class="anchor" href="#run-time-integration-via-javascript">#</a>
 </h3>
-<p>Tham khảo ví dụ: <a href="https://micro-frontends.tuando.net/docs/example/web-components/">https://micro-frontends.tuando.net/docs/example/web-components/</a></p>
+<p>Các tiếp cận này là việc chúng ta khai báo các global function hỗ trợ render các chức năng ở dự án con. Sau đó ở dự án chính ta sẽ gắn các script bundle file của các dự án con, tiếp theo cần hiện thị chức năng nào thì chỉ việc gọi chức năng đó thôi.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-dom&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./App&#34;</span>;
+
+window.<span style="color:#a6e22e">renderProducts</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">containerId</span>, <span style="color:#a6e22e">history</span>) =&gt; {
+    <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+        &lt;<span style="color:#f92672">App</span> <span style="color:#a6e22e">history</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">history</span>} /&gt;,
+        document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#a6e22e">containerId</span>),
+    );
+};
+
+</code></pre></div><p>Chi tiết demo: <a href="https://micro-frontends.tuando.net/docs/example/run-time-integration/">https://micro-frontends.tuando.net/docs/example/run-time-integration/</a></p>
 <h3 id="run-time-integration-via-web-components">
   <strong>Run-time integration via Web Components</strong>
   <a class="anchor" href="#run-time-integration-via-web-components">#</a>
 </h3>
-<p>Cách tiếp cận này cho phép chúng ta khai báo một HTML Custom Element, ví dụ như ta khai báo một HTML Custom Element <code>&lt;footer-order&gt;&lt;/footer-order&gt;</code> thì chỗ nào muốn sử dụng ta chỉ cần chèn đoạn mã <code>&lt;footer-order&gt;&lt;/footer-order&gt;</code> là có thể sử dụng được rồi.</p>
-<p>Tham khảo ví dụ: <a href="https://micro-frontends.tuando.net/docs/example/web-components/">https://micro-frontends.tuando.net/docs/example/web-components/</a></p>
+<p>Cách tiếp cận này cho phép chúng ta khai báo một HTML Custom Element, ví dụ như ta khai báo một HTML Custom Element <code>&lt;web-components-products&gt;&lt;/web-components-products&gt;</code> thì chỗ nào muốn sử dụng ta chỉ cần chèn đoạn mã <code>&lt;web-components-products&gt;&lt;/web-components-products&gt;</code> là có thể sử dụng được rồi.</p>
+<p>Chi tiết demo: <a href="https://micro-frontends.tuando.net/docs/example/web-components/">https://micro-frontends.tuando.net/docs/example/web-components/</a></p>
+<p>Ưu điểm:</p>
+<ul>
+<li>Không bị phụ thuộc dependencies giữa các dự án với nhau (ví dụ: khác version React giữa các dự án)</li>
+<li>Vì cho phép tạo một HTML Custom Element nên ta có thể gắn thẻ HTML Custom này vào bất cứ đoạn mã HTML nào, không quan trọng dự án đó đang sử dụng frontend framework nào</li>
+<li>Hỗ trợ Shadow DOM: cho phép style css độc lập, không ảnh hưởng css giữa các dự án với nhau</li>
+<li>Có thể phát triển theo hướng package (publish lên một registry) mà không cần phải có domain host cho dự án vì vậy đơn giản trong việc quản lý các version release.</li>
+</ul>
+<p>Hạn chế:</p>
+<ul>
+<li>Không thể chia sẻ tài nguyên giữa các dự án với nhau (ví dụ: sử dụng chung thư viện React)</li>
+</ul>
 <h3 id="module-federation-webpack-5">
   <strong>Module Federation Webpack 5</strong>
   <a class="anchor" href="#module-federation-webpack-5">#</a>
@@ -379,9 +403,19 @@ https://github.com/alex-shpak/hugo-book
 <p>Module Federation là một tính năng mới của Webpack 5. Nó cho phép chúng ta cấu hình để một ứng dụng có thể dynamic load code từ một ứng dụng khác.</p>
 <p>Hiểu đơn giản là chúng ta có 2 ứng dụng được phát triển độc lập A và B, ứng dụng B là một phần nhỏ chức năng của ứng dụng A. Module Federation sẽ cho phép ta nhúng ứng dụng B và ứng dụng A và chia sẻ tài nguyên giữa chúng.</p>
 <p>Chi tiết các bạn tham khảo tài liệu tại <a href="https://webpack.js.org/concepts/module-federation/">Module Federation</a> và các ví dụ tại <a href="https://github.com/module-federation/module-federation-examples">Module Federation Examples</a></p>
-<p>Tham khảo ví dụ:</p>
-<p>React: <a href="https://micro-frontends.tuando.net/docs/example/react-example/">https://micro-frontends.tuando.net/docs/example/react-example/</a></p>
-<p>React: <a href="https://micro-frontends.tuando.net/docs/example/react-redux/">https://micro-frontends.tuando.net/docs/example/react-redux/</a></p>
+<p>Chi tiết demo:</p>
+<p><a href="https://micro-frontends.tuando.net/docs/example/react-example/">Web components trong React</a></p>
+<p><a href="https://micro-frontends.tuando.net/docs/example/react-redux/">Web components trong React kết hợp Redux</a></p>
+<p>Ưu điểm:</p>
+<ul>
+<li>Có thể chia sẻ tài nguyên giữa các dự án. Ví dụ dự án A sử dụng React 16.x và dự án B cũng sử dụng React 16.x thì khi tải module B sẽ không cần phải tải thêm React một lần nữa, nếu 2 version khác nhau thì nó sẽ tự động tải thêm version React còn thiếu.</li>
+<li>Giao tiếp giữa các dự án một cách đơn giản, có thể sử dụng chung một Redux store giữa các dự án với nhau</li>
+</ul>
+<p>Hạn chế:</p>
+<ul>
+<li>Các dự án phải sử dụng Module Federation của Webpack 5.x</li>
+<li>Buộc phải các dự án phải có các static domain để tải các bundle file tương ứng. Vì các chức năng Module Federation chỉ hỗ trợ cấu hình tải các file từ một remote url</li>
+</ul>
 <h3 id="tài-liệu-tham-khảo">
   <em><strong>Tài liệu tham khảo:</strong></em>
   <a class="anchor" href="#t%c3%a0i-li%e1%bb%87u-tham-kh%e1%ba%a3o">#</a>
@@ -398,9 +432,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/dotuan9x/micro-frontends/commit/6bd96356f3f0e63f0268511ec15e164ae1ff71e2" title='Last modified by dotuan9x | August 11, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/dotuan9x/micro-frontends/commit/eb590371c93799aac1ca56c811b397aef80b113e" title='Last modified by dotuan9x | August 12, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>August 11, 2021</span>
+      <span>August 12, 2021</span>
     </a>
   </div>
 

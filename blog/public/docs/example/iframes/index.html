@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Iframe example#Để triển khai iframe thì đơn giản khỏi phải nói luôn. Ta chỉ cần chèn HTML tag &lt;iframe src=&quot;mico-frontends.tuando.net&quot;&gt;&lt;/iframe&gt; là có ngay một app khác xịn sò vào trong ứng dụng của mình liền.
+<meta name="description" content="Iframe example#Để triển khai iframe thì đơn giản khỏi phải nói luôn. Ta chỉ cần chèn HTML tag &lt;iframe src=&quot;example.com&quot;&gt;&lt;/iframe&gt; là có ngay một app khác xịn sò vào trong ứng dụng của mình liền.
 Demo: Mình sẽ demo iframe bằng cách gắn một app khác (app products hiện thị các sản phẩm liên quan) vào một app chính như hình bên dưới.
-Source codeDemo">
+Trong file App.jsx của project container đã chèn HTML tag iframe như bên dưới, và kết quả sẽ như hình bên trên.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Iframes" />
-<meta property="og:description" content="Iframe example#Để triển khai iframe thì đơn giản khỏi phải nói luôn. Ta chỉ cần chèn HTML tag &lt;iframe src=&quot;mico-frontends.tuando.net&quot;&gt;&lt;/iframe&gt; là có ngay một app khác xịn sò vào trong ứng dụng của mình liền.
+<meta property="og:description" content="Iframe example#Để triển khai iframe thì đơn giản khỏi phải nói luôn. Ta chỉ cần chèn HTML tag &lt;iframe src=&quot;example.com&quot;&gt;&lt;/iframe&gt; là có ngay một app khác xịn sò vào trong ứng dụng của mình liền.
 Demo: Mình sẽ demo iframe bằng cách gắn một app khác (app products hiện thị các sản phẩm liên quan) vào một app chính như hình bên dưới.
-Source codeDemo" />
+Trong file App.jsx của project container đã chèn HTML tag iframe như bên dưới, và kết quả sẽ như hình bên trên." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://micro-frontends.tuando.net/docs/example/iframes/" /><meta property="article:section" content="docs" />
 
@@ -20,7 +20,7 @@ Source codeDemo" />
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.bb973d732b4076c70ae362d4376c1fb0a6af3e3123022d2c26494d7fedc9478e.js" integrity="sha256-u5c9cytAdscK42LUN2wfsKavPjEjAi0sJklNf&#43;3JR44=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.af39b0186dd2466e38bddad7e2aab3ca59255668c2803e4f50c3e532241b1b39.js" integrity="sha256-rzmwGG3SRm44vdrX4qqzylklVmjCgD5PUMPlMiQbGzk=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -292,10 +292,15 @@ https://github.com/alex-shpak/hugo-book
   Iframe example
   <a class="anchor" href="#iframe-example">#</a>
 </h2>
-<p>Để triển khai <code>iframe</code> thì đơn giản khỏi phải nói luôn. Ta chỉ cần chèn HTML tag <code>&lt;iframe src=&quot;mico-frontends.tuando.net&quot;&gt;&lt;/iframe&gt;</code> là có ngay một app khác xịn sò vào trong ứng dụng của mình liền.</p>
-<p>Demo: Mình sẽ demo iframe bằng cách gắn một app khác (app products hiện thị các sản phẩm liên quan) vào một app chính như hình bên dưới.</p>
+<p>Để triển khai <code>iframe</code> thì đơn giản khỏi phải nói luôn. Ta chỉ cần chèn HTML tag <code>&lt;iframe src=&quot;example.com&quot;&gt;&lt;/iframe&gt;</code> là có ngay một app khác xịn sò vào trong ứng dụng của mình liền.</p>
+<p>Demo: Mình sẽ demo iframe bằng cách gắn một app khác (app <code>products</code> hiện thị các sản phẩm liên quan) vào một app chính như hình bên dưới.</p>
 <p><img src="/images/react-example.png" alt="Iframe" /></p>
-
+<p>Trong file <code>App.jsx</code> của project <code>container</code> đã chèn HTML tag iframe như bên dưới, và kết quả sẽ như hình bên trên. Ta có chức năng Related products nằm bên trong app <code>container</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// iframes/container/src/App.jsx
+</span><span style="color:#75715e"></span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;p-1&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">210</span>}}&gt;
+    &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;w-full h-full&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://micro-frontends.tuando.net/demo/react-example/products#/&#34;</span> /&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div>
 
 
   

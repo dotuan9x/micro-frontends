@@ -4,23 +4,23 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends#Một số trường hợp sau đây, chúng ta có thể sử dụng Micro Frontends
-Có thể bạn sẽ muốn phát triển một progressive hoặc responsive web application nhưng bạn gặp khó khăn trong việc tích hợp vào source code hiện tại của mình
-Có thể bạn muốn sử dụng một thư viện mới để tăng tốc quá trình phát triển sản phẩm của mình (vd: trước đó sử dụng Angularjs (1.">
+Một sản phẩm có nhiều module chức năng và bạn muốn nhiều team có thể phát triển cùng lúc
+Có thể bạn sẽ muốn phát triển một progressive hoặc responsive web application nhưng bạn gặp khó khăn trong việc tích hợp vào source code hiện tại của mình">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends" />
 <meta property="og:description" content="Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends#Một số trường hợp sau đây, chúng ta có thể sử dụng Micro Frontends
-Có thể bạn sẽ muốn phát triển một progressive hoặc responsive web application nhưng bạn gặp khó khăn trong việc tích hợp vào source code hiện tại của mình
-Có thể bạn muốn sử dụng một thư viện mới để tăng tốc quá trình phát triển sản phẩm của mình (vd: trước đó sử dụng Angularjs (1." />
+Một sản phẩm có nhiều module chức năng và bạn muốn nhiều team có thể phát triển cùng lúc
+Có thể bạn sẽ muốn phát triển một progressive hoặc responsive web application nhưng bạn gặp khó khăn trong việc tích hợp vào source code hiện tại của mình" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://micro-frontends.tuando.net/docs/table-of-contents/when-to-use/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2021-08-10T22:47:10+07:00" />
+<meta property="article:modified_time" content="2021-08-12T00:04:45+07:00" />
 
 <title>Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends | Micro frontends</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.bb973d732b4076c70ae362d4376c1fb0a6af3e3123022d2c26494d7fedc9478e.js" integrity="sha256-u5c9cytAdscK42LUN2wfsKavPjEjAi0sJklNf&#43;3JR44=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.af39b0186dd2466e38bddad7e2aab3ca59255668c2803e4f50c3e532241b1b39.js" integrity="sha256-rzmwGG3SRm44vdrX4qqzylklVmjCgD5PUMPlMiQbGzk=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -293,11 +293,12 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#khi-n%c3%a0o-ta-n%c3%aan-ngh%c4%a9-t%e1%bb%9bi-vi%e1%bb%87c-s%e1%bb%ad-d%e1%bb%a5ng-micro-frontends">#</a>
 </h2>
 <p><em>Một số trường hợp sau đây, chúng ta có thể sử dụng Micro Frontends</em></p>
+<p>Một sản phẩm có nhiều module chức năng và bạn muốn nhiều team có thể phát triển cùng lúc</p>
 <p>Có thể bạn sẽ muốn phát triển một progressive hoặc responsive web application nhưng bạn gặp khó khăn trong việc tích hợp vào source code hiện tại của mình</p>
-<p>Có thể bạn muốn sử dụng một thư viện mới để tăng tốc quá trình phát triển sản phẩm của mình (vd: trước đó sử dụng Angularjs (1.x) để phát triển và hiện tại muốn sử dụng ReactJS để phát triển)</p>
 <p>Có thể bạn muốn sử dụng một thư viện mới để tăng tốc quá trình phát triển sản phẩm của mình (vd: trước đó sử dụng Angularjs (1.x) để phát triển và hiện tại muốn sử dụng ReactJS để phát triển)</p>
 <p>Bạn muốn sử dụng một thư viện mới để hỗ trợ cho các chức năng sản phẩm, như sử dụng Webpack 5.x nhưng project hiện tại đang sử dụng Webpack 3.x và khó có thể nâng cấp lên Webpack 5.x được vì có khá nhiều dependence bị ảnh hưởng.</p>
 <p>Có thể bạn muốn tăng tốc quá trình phát triển sản phẩm bằng cách nhiều team khác nhau tham gia vào phát triển một sản phẩm cùng lúc bằng việc tách ra nhiều module và phát triển độc lập.</p>
+<p>Và rất nhiều lý do khác&hellip;</p>
 </article>
  
       
@@ -308,9 +309,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/dotuan9x/micro-frontends/commit/2708cbdcd0b0024de8a90a260eb98aea0c985be6" title='Last modified by Tuấn Đỗ Văn | August 10, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/dotuan9x/micro-frontends/commit/eb590371c93799aac1ca56c811b397aef80b113e" title='Last modified by dotuan9x | August 12, 2021' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>August 10, 2021</span>
+      <span>August 12, 2021</span>
     </a>
   </div>
 

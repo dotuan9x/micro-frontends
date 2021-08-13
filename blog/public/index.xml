@@ -12,9 +12,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/example/iframes/</guid>
-      <description>Iframe example#Để triển khai iframe thì đơn giản khỏi phải nói luôn. Ta chỉ cần chèn HTML tag &amp;lt;iframe src=&amp;quot;mico-frontends.tuando.net&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt; là có ngay một app khác xịn sò vào trong ứng dụng của mình liền.
+      <description>Iframe example#Để triển khai iframe thì đơn giản khỏi phải nói luôn. Ta chỉ cần chèn HTML tag &amp;lt;iframe src=&amp;quot;example.com&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt; là có ngay một app khác xịn sò vào trong ứng dụng của mình liền.
 Demo: Mình sẽ demo iframe bằng cách gắn một app khác (app products hiện thị các sản phẩm liên quan) vào một app chính như hình bên dưới.
-Source codeDemo</description>
+Trong file App.jsx của project container đã chèn HTML tag iframe như bên dưới, và kết quả sẽ như hình bên trên.</description>
     </item>
     
     <item>
@@ -24,8 +24,8 @@ Source codeDemo</description>
       
       <guid>https://micro-frontends.tuando.net/docs/table-of-contents/when-to-use/</guid>
       <description>Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends#Một số trường hợp sau đây, chúng ta có thể sử dụng Micro Frontends
-Có thể bạn sẽ muốn phát triển một progressive hoặc responsive web application nhưng bạn gặp khó khăn trong việc tích hợp vào source code hiện tại của mình
-Có thể bạn muốn sử dụng một thư viện mới để tăng tốc quá trình phát triển sản phẩm của mình (vd: trước đó sử dụng Angularjs (1.</description>
+Một sản phẩm có nhiều module chức năng và bạn muốn nhiều team có thể phát triển cùng lúc
+Có thể bạn sẽ muốn phát triển một progressive hoặc responsive web application nhưng bạn gặp khó khăn trong việc tích hợp vào source code hiện tại của mình</description>
     </item>
     
     <item>
@@ -34,8 +34,8 @@ Có thể bạn muốn sử dụng một thư viện mới để tăng tốc qu�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/table-of-contents/advantages-and-disadvantages/</guid>
-      <description>Một số ưu điểm và nhược điểm của Micro Frontends#Ưu điểm#Tách biệt các module chức năng thành nhiều phần source code riêng biệt. Từ đó giảm các dependence ở mỗi project, lượng code sẽ ít hơn, giúp cho quá trình build deploy nhanh hơn và các file js bundle cũng sẽ nhẹ hơn
-Có khả năng mở rộng một cách dễ dàng bằng cách nhiều team cùng tham gia</description>
+      <description>Một số ưu điểm và nhược điểm của Micro Frontends#Ưu điểm#  Tách biệt các module chức năng thành nhiều phần source code riêng biệt. Từ đó giảm các dependencies ở mỗi project, lượng code sẽ ít hơn, giúp cho quá trình build deploy nhanh hơn và các file js bundle cũng sẽ nhẹ hơn
+  Có khả năng mở rộng một cách dễ dàng bằng cách nhiều team cùng tham gia.</description>
     </item>
     
     <item>
@@ -55,7 +55,8 @@ Có khả năng mở rộng một cách dễ dàng bằng cách nhiều team cù
       
       <guid>https://micro-frontends.tuando.net/docs/table-of-contents/method/</guid>
       <description>Một số phương pháp triển khai Micro Frontends#Build-time integration#là việc coi các ứng dụng như một package và ứng dụng chính sẽ thêm các ứng dụng con như một thư viện như sau:
-{ &amp;#34;name&amp;#34;: &amp;#34;@feed-me/container&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;A food delivery web app&amp;#34;, &amp;#34;dependencies&amp;#34;: { &amp;#34;@feed-me/browse-restaurants&amp;#34;: &amp;#34;^1.2.3&amp;#34;, &amp;#34;@feed-me/order-food&amp;#34;: &amp;#34;^4.5.6&amp;#34;, &amp;#34;@feed-me/user-profile&amp;#34;: &amp;#34;^7.8.9&amp;#34; } } Cách tiếp cận này có một số hạn chế như:</description>
+{ &amp;#34;name&amp;#34;: &amp;#34;@micro-frontends/container&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;Micro frontends demo&amp;#34;, &amp;#34;dependencies&amp;#34;: { &amp;#34;@micro-frontends/products&amp;#34;: &amp;#34;^1.2.3&amp;#34;, &amp;#34;@micro-frontends/checkout&amp;#34;: &amp;#34;^4.5.6&amp;#34;, &amp;#34;@micro-frontends/user-profile&amp;#34;: &amp;#34;^7.8.9&amp;#34; } } Cách tiếp cận này có một số hạn chế như:
+ Chúng ta sẽ phải re-compile (bundle) các ứng dụng chính và release lại mỗi khi các ứng dụng con có thay đổi (release version mới từ 0.</description>
     </item>
     
     <item>
@@ -64,7 +65,9 @@ Có khả năng mở rộng một cách dễ dàng bằng cách nhiều team cù
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/example/web-components/</guid>
-      <description>Web components#Source codeDemo</description>
+      <description>Web components#Để khai báo một HTML Custom Element ta thực hiện như sau:
+// /web-components/products/src/index.jsx import React from &amp;#34;react&amp;#34;; import ReactDOM from &amp;#34;react-dom&amp;#34;; import App from &amp;#34;./App&amp;#34;; class Webcomponents extends HTMLElement { constructor() { super(); } connectedCallback() { ReactDOM.render(&amp;lt;App /&amp;gt;, this); } } customElements.define(&amp;#39;web-components-products&amp;#39;, Webcomponents); Trong file index.html của project container ta load bundle file của project products
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;The Model Store&amp;lt;/title&amp;gt; &amp;lt;script src=&amp;#34;https://micro-frontends.</description>
     </item>
     
     <item>
@@ -73,7 +76,10 @@ Có khả năng mở rộng một cách dễ dàng bằng cách nhiều team cù
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/example/react-example/</guid>
-      <description>Module Federation React Example#Source codeDemo</description>
+      <description>Module Federation React Example#Module Federation là một plugin của webpack 5, nên ta tiến hành cấu hình webpack như sau:
+Import ModuleFederationPlugin của webpack (lưu ý module này chỉ có trong webpack 5 trở lên)
+// webpack.config const {ModuleFederationPlugin} = require(&amp;#39;webpack&amp;#39;).container; Sau đó ta cấu hình plugin trong project products như sau
+// webpack.config (products project)  plugins: [ new ModuleFederationPlugin({ name: &amp;#39;Products&amp;#39;, library: {type: &amp;#39;var&amp;#39;, name: &amp;#39;Products&amp;#39;}, filename: &amp;#39;products.</description>
     </item>
     
     <item>
@@ -82,7 +88,9 @@ Có khả năng mở rộng một cách dễ dàng bằng cách nhiều team cù
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://micro-frontends.tuando.net/docs/example/react-redux/</guid>
-      <description>Module Federation React Redux#Source codeDemo</description>
+      <description>Module Federation React Redux#Tương tự như phần Module Federation React Example nhưng trong demo này có sử dụng Redux để giao tiếp giữa 2 app với nhau.
+Cụ thể là với demo bên dưới bạn có thể click vào sản phẩm ở phần Related products thì sản phẩm chính bên app container sẽ thay đổi theo
+Source codeDemo</description>
     </item>
     
     <item>
