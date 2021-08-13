@@ -1,5 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const {dependencies} = require("./package.json");
 const {ModuleFederationPlugin} = require('webpack').container;
 
 module.exports = {
@@ -40,9 +41,21 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'main',
+            name: 'container',
             remotes: {
                 Products: 'Products@https://micro-frontends.tuando.net/demo/react-redux/products/dist/products.js',
+            },
+            shared: {
+                'react': {
+                    eager: true,
+                    singleton: true,
+                    requiredVersion: dependencies.react,
+                },
+                'react-dom': {
+                    eager: true,
+                    singleton: true,
+                    requiredVersion: dependencies["react-dom"],
+                }
             }
         }),
         new HTMLWebpackPlugin({

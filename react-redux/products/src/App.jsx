@@ -1,6 +1,4 @@
 import React, {useEffect} from 'react';
-import PropTypes from 'prop-types';
-import {HashRouter} from 'react-router-dom';
 import {Provider, useSelector, useDispatch } from 'react-redux';
 
 import {store as RelatedStore} from "./store";
@@ -14,11 +12,9 @@ function App(props) {
     }, [])
 
     return (
-        <HashRouter>
-            <Provider store={store || {}}>
-                <RelatedProduct />
-            </Provider>
-        </HashRouter>
+        <Provider store={store || {}}>
+            <RelatedProduct />
+        </Provider>
     );
 }
 
@@ -33,7 +29,8 @@ const RelatedProduct = () => {
     });
 
     return (
-        <div className="border-l border-gray-100 p-5">
+        <div style={{width: 200}} className="relative border-dashed border-2 border-green-300 p-2 rounded">
+            <div className="absolute -top-8 left-0 text-green-300 font-bold">Team Product (<a target="_blank" href="https://github.com/dotuan9x/micro-frontends/tree/master/react-redux/products" rel="noreferrer">products</a>) </div>
             <h1 className="text-base font-medium">Related products</h1>
             <ul className="flex flex-col">
                 {
@@ -49,9 +46,5 @@ const RelatedProduct = () => {
         </div>
     )
 }
-
-App.propTypes = {
-    children: PropTypes.Any
-};
 
 export default App;

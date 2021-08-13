@@ -1,5 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const {dependencies} = require("./package.json");
 const {ModuleFederationPlugin} = require('webpack').container;
 
 module.exports = {
@@ -48,6 +49,18 @@ module.exports = {
             name: 'container',
             remotes: {
                 Products: 'Products@http://localhost:8002/products.js',
+            },
+            shared: {
+                'react': {
+                    eager: true,
+                    singleton: true,
+                    requiredVersion: dependencies.react,
+                },
+                'react-dom': {
+                    eager: true,
+                    singleton: true,
+                    requiredVersion: dependencies["react-dom"],
+                }
             }
         }),
         new HTMLWebpackPlugin({

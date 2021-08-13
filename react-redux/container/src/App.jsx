@@ -1,32 +1,30 @@
 import React from 'react';
-import {HashRouter} from 'react-router-dom';
 import { Provider, useSelector } from 'react-redux';
 import { store } from './store';
 
 const RelatedProducts = React.lazy(() => import('Products/App'));
 
-function App() {
+const App = () => {
     return (
-        <HashRouter>
+        <Provider store={store}>
             <React.Suspense fallback={null}>
-                <Provider store={store}>
-                    <Products />
-                </Provider>
+                <Products />
             </React.Suspense>
-        </HashRouter>
+        </Provider>
     );
 }
 
 const Products = () => {
     const productId = useSelector((state) => state.productsReducer.productId);
+    const products = useSelector((state) => state.productsReducer.products);
     const relatedProductId = useSelector((state) => {
         return state && state.relatedReducer && state.relatedReducer.productId ? state.relatedReducer.productId : null
     });
-    const products = useSelector((state) => state.productsReducer.products);
     const product = products.find(product => product.id === (relatedProductId || productId));
 
     return (
-        <div className="container flex flex-row m-10 border border-gray-100">
+        <div style={{width: 1000}} className="relative container mx-auto flex flex-row m-10 border-dashed border-2 border-red-500 rounded">
+            <div className="absolute -top-7 text-red-500 font-bold">Team Core (<a target="_blank" href="https://github.com/dotuan9x/micro-frontends/tree/master/react-redux/container" rel="noreferrer">container</a>) </div>
             <div className="flex flex-col w-full p-5">
                 <div className="flex flex-row w-full justify-between">
                     <h1 className="text-lg font-bold">The Model Store</h1>

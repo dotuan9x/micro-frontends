@@ -8,7 +8,7 @@ const initialState = {
             id: 1,
             title: 'Tractor Porsche-Diesel Master 419',
             image: 'https://micro-frontends.org/0-model-store/images/tractor-red.jpg',
-            related: [4, 5, 6]
+            related: [4, 5, 6, 7]
         },
         {
             id: 2,
