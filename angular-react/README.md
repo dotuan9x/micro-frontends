@@ -57,3 +57,14 @@ Tiếp theo trong file `container/src/app/app.component.html` ta gắn HTML Cust
 ```
 
 Thế là có ngay một website xịn sò sử dụng giữa 2 công nghệ Angular và React
+
+Chỉnh một số cấu hình trong file `angular.json` để phục vụ cho quá trình build và deploy
+```shell
+"deployUrl": "https://micro-frontends.tuando.net/demo/angular-react/container/dist/", # Thay đổi domain load các static file 
+"index": {
+  "input": "src/index.html",
+  "output": "../../index.html" # Thay đổi vị trí của file index.html sau khi build
+},
+```
+
+## Thư mục products (ReactJS)

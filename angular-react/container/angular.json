@@ -21,7 +21,11 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",
-            "index": "src/index.html",
+            "deployUrl": "https://micro-frontends.tuando.net/demo/angular-react/container/dist/",
+            "index": {
+              "input": "src/index.html",
+              "output": "../../index.html"
+            },
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
