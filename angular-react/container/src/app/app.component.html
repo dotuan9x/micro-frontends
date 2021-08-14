@@ -1,0 +1,69 @@
+<div
+  style="width: 1000px"
+  class="relative container mx-auto flex flex-row m-10 border-dashed border-2 border-red-500 rounded"
+>
+  <div class="absolute -top-7 text-red-500 font-bold">
+    Angular (
+    <a
+      target="_blank"
+      href="https://github.com/dotuan9x/micro-frontends/tree/master/react-example/container"
+      rel="noreferrer"
+    >
+      container
+    </a>
+    )
+  </div>
+  <div class="flex flex-col w-full p-5">
+    <div class="flex flex-row w-full justify-between">
+      <h1 class="text-lg font-bold">The Model Store</h1>
+      <div>Orders: 0 items</div>
+    </div>
+    <div class="flex flex-row">
+      <div class="w-2/3">
+        <img
+          alt=""
+          src="https://micro-frontends.tuando.net/images/example/tractor-red.jpg"
+        />
+      </div>
+      <div class="w-1/3 pt-10">
+        <label class="text-lg font-medium">
+          Tractor Porsche-Diesel Master 419
+        </label>
+        <ul class="flex flex-row">
+          <li
+            class="cursor-pointer border-b-2 border-white hover:border-gray-300"
+          >
+            <img
+              alt=""
+              src="https://micro-frontends.org/0-model-store/images/tractor-red-thumb.jpg"
+            />
+          </li>
+          <li
+            class="cursor-pointer border-b-2 border-white hover:border-gray-300"
+          >
+            <img
+              alt=""
+              src="https://micro-frontends.org/0-model-store/images/tractor-green-thumb.jpg"
+            />
+          </li>
+          <li
+            class="cursor-pointer border-b-2 border-white hover:border-gray-300"
+          >
+            <img
+              alt=""
+              src="https://micro-frontends.org/0-model-store/images/tractor-blue-thumb.jpg"
+            />
+          </li>
+        </ul>
+        <button
+          class="font-medium hover:bg-gray-50 border border-gray-300 rounded p-3 mt-10"
+        >
+          Buy for 66,00 $
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="p-1">
+    <web-components-products></web-components-products>
+  </div>
+</div>

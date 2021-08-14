@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "lerna run --scope @angular-react/* --parallel start",
+    "build": "lerna run --scope @angular-react/* build",
+    "clean": "lerna run --scope @angular-react/* --parallel clean"
+  },
+  "devDependencies": {
+    "lerna": "3.22.1"
+  }
+}
