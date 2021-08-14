@@ -94,6 +94,17 @@ Source codeDemo</description>
     </item>
     
     <item>
+      <title>Angular React Example</title>
+      <link>https://micro-frontends.tuando.net/docs/example/angular-react/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://micro-frontends.tuando.net/docs/example/angular-react/</guid>
+      <description>Angular React Example (Sử dụng Web components)#Tích hợp một dự án sử dụng thư viện React (thư mục products) vô một dự án sử dụng Framework Angular (thư mục container)
+Thư mục container (Angular)#Sử dụng ng cli để tạo project bằng câu lệnh ng new container. Tiếp đến để để sử dụng Web components ta phải import thêm CUSTOM_ELEMENTS_SCHEMA từ @angular/core như sau
+// angular-react/container/src/app/app.</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://micro-frontends.tuando.net/posts/post-one/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

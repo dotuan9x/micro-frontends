@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Angular React Example (Sử dụng Web components)#Tích hợp một dự án sử dụng thư viện React (thư mục products) vô một dự án sử dụng Framework Angular (thư mục container)
+Thư mục container (Angular)#Sử dụng ng cli để tạo project bằng câu lệnh ng new container. Tiếp đến để để sử dụng Web components ta phải import thêm CUSTOM_ELEMENTS_SCHEMA từ @angular/core như sau
+// angular-react/container/src/app/app.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Angular React Example" />
+<meta property="og:description" content="Angular React Example (Sử dụng Web components)#Tích hợp một dự án sử dụng thư viện React (thư mục products) vô một dự án sử dụng Framework Angular (thư mục container)
+Thư mục container (Angular)#Sử dụng ng cli để tạo project bằng câu lệnh ng new container. Tiếp đến để để sử dụng Web components ta phải import thêm CUSTOM_ELEMENTS_SCHEMA từ @angular/core như sau
+// angular-react/container/src/app/app." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://micro-frontends.tuando.net/docs/example/angular-react/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Angular React Example | Micro frontends</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.958cea7827621d6fbcb3acf091344c3e44e3d2a9428f9c3c38bb9eb37bf8c45d.css" integrity="sha256-lYzqeCdiHW&#43;8s6zwkTRMPkTj0qlCj5w8OLues3v4xF0=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.b2ff7cffa38d7560205a8ffdb5c9e367275bf6d5553f2698f2255f3675fc7709.js" integrity="sha256-sv98/6ONdWAgWo/9tcnjZydb9tVVPyaY8iVfNnX8dwk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Micro frontends</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Micro Frontends</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/when-to-use/" class="">Khi nào ta nên nghĩ tới việc sử dụng Micro Frontends</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/advantages-and-disadvantages/" class="">Một số ưu điểm và nhược điểm của Micro Frontends</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/table-of-contents/method/" class="">Một số phương pháp triển khai Micro Frontends</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-090e5e9541fbf7abe3678403e1b40824" class="toggle" checked />
+    <label for="section-090e5e9541fbf7abe3678403e1b40824" class="flex justify-between">
+      <a role="button" class="">Ví dụ</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/iframes/" class="">Iframes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/run-time-integration/" class="">Run-time integration via JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/web-components/" class="">Web components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/react-example/" class="">Module Federation React Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/react-redux/" class="">Module Federation React Redux</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://micro-frontends.tuando.net/docs/example/angular-react/" class=" active">Angular React Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/dotuan9x/micro-frontends" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Angular React Example</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#angular-react-example-sử-dụng-web-components">Angular React Example (Sử dụng Web components)</a>
+          <ul>
+            <li><a href="#thư-mục-container-angular">Thư mục container (Angular)</a></li>
+            <li><a href="#thư-mục-products-reactjs">Thư mục products (ReactJS)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="angular-react-example-sử-dụng-web-components">
+  Angular React Example (Sử dụng Web components)
+  <a class="anchor" href="#angular-react-example-s%e1%bb%ad-d%e1%bb%a5ng-web-components">#</a>
+</h2>
+<p>Tích hợp một dự án sử dụng thư viện React (thư mục <code>products</code>) vô một dự án sử dụng Framework Angular (thư mục <code>container</code>)</p>
+<h3 id="thư-mục-container-angular">
+  Thư mục container (Angular)
+  <a class="anchor" href="#th%c6%b0-m%e1%bb%a5c-container-angular">#</a>
+</h3>
+<p>Sử dụng <code>ng cli</code> để tạo project bằng câu lệnh <code>ng new container</code>. Tiếp đến để để sử dụng Web components ta phải import thêm <code>CUSTOM_ELEMENTS_SCHEMA</code> từ <code>@angular/core</code> như sau</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// angular-react/container/src/app/app.module.ts
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NgModule</span>, <span style="color:#a6e22e">CUSTOM_ELEMENTS_SCHEMA</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserModule</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/platform-browser&#39;</span>;
+
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">AppComponent</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./app.component&#39;</span>;
+
+<span style="color:#66d9ef">@NgModule</span>({
+  <span style="color:#a6e22e">declarations</span><span style="color:#f92672">:</span> [
+    <span style="color:#a6e22e">AppComponent</span>
+  ],
+  <span style="color:#a6e22e">imports</span><span style="color:#f92672">:</span> [
+    <span style="color:#a6e22e">BrowserModule</span>
+  ],
+  <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span> [],
+  <span style="color:#a6e22e">schemas</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">CUSTOM_ELEMENTS_SCHEMA</span>],
+  <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">AppComponent</span>]
+})
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppModule</span> { }
+
+</code></pre></div><p>Tiếp đến ở file <code>container/src/index.html</code> đừng quên gắn script file của project <code>products</code> nhé</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!doctype html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+  &lt;<span style="color:#f92672">title</span>&gt;Container&lt;/<span style="color:#f92672">title</span>&gt;
+  &lt;<span style="color:#f92672">base</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1&#34;</span>&gt;
+  &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/x-icon&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;favicon.ico&#34;</span>&gt;
+  &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>&gt;
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://micro-frontends.tuando.net/demo/angular-react/products/dist/main.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">app-root</span>&gt;&lt;/<span style="color:#f92672">app-root</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+
+</code></pre></div><p>Tiếp theo trong file <code>container/src/app/app.component.html</code> ta gắn HTML Custom Element mình đã khai báo của project <code>products</code> như sau</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;p-1&#34;</span>&gt;
+    &lt;<span style="color:#f92672">web-components-products</span>&gt;&lt;/<span style="color:#f92672">web-components-products</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>Thế là có ngay một website xịn sò sử dụng giữa 2 công nghệ Angular và React</p>
+<p>Lưu ý: có chỉnh một số cấu hình trong file <code>angular.json</code> để phục vụ cho quá trình build và deploy</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#e6db74">&#34;deployUrl&#34;</span>: <span style="color:#e6db74">&#34;https://micro-frontends.tuando.net/demo/angular-react/container/dist/&#34;</span>, <span style="color:#75715e"># Thay đổi domain load các static file </span>
+<span style="color:#e6db74">&#34;index&#34;</span>: <span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;input&#34;</span>: <span style="color:#e6db74">&#34;src/index.html&#34;</span>,
+  <span style="color:#e6db74">&#34;output&#34;</span>: <span style="color:#e6db74">&#34;../../index.html&#34;</span> <span style="color:#75715e"># Thay đổi vị trí của file index.html sau khi build</span>
+<span style="color:#f92672">}</span>,
+</code></pre></div><h3 id="thư-mục-products-reactjs">
+  Thư mục products (ReactJS)
+  <a class="anchor" href="#th%c6%b0-m%e1%bb%a5c-products-reactjs">#</a>
+</h3>
+<p>Khai báo một HTML Custom Element phục vụ cho việc render bên project <code>container</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// /angular-react/products/src/index.jsx
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-dom&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./App&#34;</span>;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Webcomponents</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">HTMLElement</span> {
+    <span style="color:#a6e22e">constructor</span>() {
+        <span style="color:#66d9ef">super</span>();
+    }
+
+    <span style="color:#a6e22e">connectedCallback</span>() {
+        <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">App</span> /&gt;, <span style="color:#66d9ef">this</span>);
+    }
+}
+
+<span style="color:#a6e22e">customElements</span>.<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;web-components-products&#39;</span>, <span style="color:#a6e22e">Webcomponents</span>);
+</code></pre></div><p><img src="/images/angular-react.png" alt="Iframe" /></p>
+
+
+
+  
+  
+
+
+<a  href="https://github.com/dotuan9x/micro-frontends/tree/master/angular-react"   target="_blank" rel="noopener"  class="book-btn">
+  Source code
+</a>
+
+
+
+
+  
+  
+
+
+<a  href="https://micro-frontends.tuando.net/demo/angular-react"   target="_blank" rel="noopener"  class="book-btn">
+  Demo
+</a>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#angular-react-example-sử-dụng-web-components">Angular React Example (Sử dụng Web components)</a>
+          <ul>
+            <li><a href="#thư-mục-container-angular">Thư mục container (Angular)</a></li>
+            <li><a href="#thư-mục-products-reactjs">Thư mục products (ReactJS)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
