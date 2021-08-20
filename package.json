@@ -12,7 +12,8 @@
       "web-components/*",
       "react-example/*",
       "react-redux/*",
-      "run-time-integration/*"
+      "run-time-integration/*",
+      "react-components-inside-angular/*"
     ]
   },
   "devDependencies": {
